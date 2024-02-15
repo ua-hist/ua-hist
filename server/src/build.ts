@@ -5,11 +5,13 @@ import { Prisma } from "@prisma/client";
 import { z } from "zod";
 import { validatorCompiler, serializerCompiler, ZodTypeProvider } from "fastify-type-provider-zod";
 import eventRoutes from "./routes/events";
+import swaggerPlugin from "./plugins/swagger";
 
 export async function build(): Promise<FastifyZod> {
   const f = Fastify({
     logger: true,
   });
+  await f.register(swaggerPlugin);
   await f.register(fastifyCors, {
     origin: "*",
   });
