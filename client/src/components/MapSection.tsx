@@ -1,5 +1,4 @@
-import { MapContainer } from "react-leaflet/MapContainer";
-import { TileLayer } from "react-leaflet/TileLayer";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 export function MapSection() {
   return (
