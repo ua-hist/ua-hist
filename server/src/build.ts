@@ -4,6 +4,7 @@ import prismaPlugin from "./plugins/prisma";
 import { Prisma } from "@prisma/client";
 import { z } from "zod";
 import { validatorCompiler, serializerCompiler, ZodTypeProvider } from "fastify-type-provider-zod";
+import eventRoutes from "./routes/events";
 
 export async function build(): Promise<FastifyZod> {
   const f = Fastify();
@@ -35,6 +36,10 @@ export async function build(): Promise<FastifyZod> {
     }
 
     return rep.status(500).send(err.message);
+  });
+
+  await f.register(eventRoutes, {
+    prefix: "/events",
   });
 
   return f.withTypeProvider<ZodTypeProvider>();

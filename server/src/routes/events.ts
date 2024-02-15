@@ -2,7 +2,7 @@ import { FastifyZod } from "fastify";
 import { z } from "zod";
 
 export default function (f: FastifyZod) {
-  f.get("/events", {
+  f.get("/", {
     schema: {
       querystring: z.object({
         foo: z.string(),
