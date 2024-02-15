@@ -7,7 +7,9 @@ import { validatorCompiler, serializerCompiler, ZodTypeProvider } from "fastify-
 import eventRoutes from "./routes/events";
 
 export async function build(): Promise<FastifyZod> {
-  const f = Fastify();
+  const f = Fastify({
+    logger: true,
+  });
   await f.register(fastifyCors, {
     origin: "*",
   });
