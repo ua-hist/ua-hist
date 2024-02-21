@@ -1,3 +1,5 @@
+import { dates } from "./dates";
+
 export const apiUrl = "http://localhost:3000";
 
 export type HistoryEvent = {
@@ -6,6 +8,7 @@ export type HistoryEvent = {
   events: string;
   eventsMarkup: string;
   eventIndex: number;
+  startYear?: number;
 };
 
 const replaceLinks = (record: HistoryEvent): HistoryEvent => {
@@ -20,5 +23,11 @@ const replaceLinks = (record: HistoryEvent): HistoryEvent => {
 export const getAllEvents = async (): Promise<HistoryEvent[]> => {
   return fetch(apiUrl + "/events")
     .then((res) => res.json())
-    .then((records: HistoryEvent[]) => records.map(replaceLinks));
+    .then((records: HistoryEvent[]) =>
+      records.map(replaceLinks).map((r, i) => {
+        r.startYear = dates[i];
+
+        return r;
+      })
+    );
 };

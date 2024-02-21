@@ -9,7 +9,16 @@ export const MapController = ({ features }: { features: Feature<any>[] }) => {
   const layerRef = useRef<L.Layer>();
 
   useEffect(() => {
-    const colors = ["blue", "red", "green"];
+    const colors = [
+      "blue",
+      "red",
+      "green",
+      "#ffea00",
+      "#9500ff",
+      "#00ffc3",
+      "#6a00ff",
+      "#ff8400",
+    ];
 
     const getColor = (i: number) => colors[i % colors.length];
 
