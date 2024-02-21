@@ -1,29 +1,26 @@
-import { Feature } from "geojson";
 import { useState } from "react";
-import { getMaps } from "../api/get-maps";
 
-export function DateInput(props: { setFeats: (f: Feature<any>[]) => void }) {
-  const [date, setDate] = useState<number | undefined>();
+export function DateInput(props: {
+  date: number;
+  setDate: (f: number) => void;
+}) {
+  const { date, setDate } = props;
+
+  const [value, setValue] = useState<number>(date);
 
   return (
     <form
       onSubmit={async (e) => {
         e.preventDefault();
-        console.log(date);
-        if (!date) {
-          return;
-        }
-        const data = await getMaps(date);
-        // props.setFeats([]);
-        // await new Promise((r) => setTimeout(r, 200));
-        props.setFeats(data);
+        console.log(value);
+        setDate(value);
       }}
     >
       <input
         type="number"
-        value={date}
+        value={value}
         onChange={(e) => {
-          setDate(+e.target.value);
+          setValue(+e.target.value);
         }}
       />
     </form>
