@@ -1,6 +1,9 @@
 {
   "ts-node": {
     // Do not forget to `npm i -D tsconfig-paths`
+    "compilerOptions": {
+      "module": "commonjs"
+    },
     "require": ["tsconfig-paths/register"]
   },
   "compilerOptions": {
