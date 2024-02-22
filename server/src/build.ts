@@ -9,9 +9,8 @@ import {
   ZodTypeProvider,
 } from "fastify-type-provider-zod";
 import eventRoutes from "./routes/events";
+import mapRoutes from "./routes/maps";
 import swaggerPlugin from "./plugins/swagger";
-import { readFile, readdir } from "fs/promises";
-import { join } from "path";
 
 export async function build(): Promise<FastifyZod> {
   const f = Fastify({
@@ -52,60 +51,9 @@ export async function build(): Promise<FastifyZod> {
     prefix: "/events",
   });
 
-  function findInsertPosition(numbers, K) {
-    let low = 0;
-    let high = numbers.length - 1;
-
-    while (low <= high) {
-      const mid = Math.floor((low + high) / 2);
-
-      if (numbers[mid] === K) {
-        return mid + 1;
-      } else if (numbers[mid] < K) {
-        low = mid + 1;
-      } else {
-        high = mid - 1;
-      }
-    }
-
-    return low;
-  }
-
-  (f as unknown as FastifyZod).get(
-    "/maps/:year",
-    {
-      schema: {
-        params: z.object({
-          year: z.string(),
-        }),
-      },
-    },
-    async (req, res) => {
-      const { year: strYear } = req.params;
-
-      const year = parseInt(strYear);
-
-      const files = await readdir(join(__dirname, "../geojson"));
-
-      const years = files
-        .map((file) => parseInt(file.replace(".geojson", "")))
-        .sort((a, b) => a - b);
-
-      const foundYear = years[findInsertPosition(years, year) - 1];
-
-      if (!foundYear) {
-        return undefined;
-      }
-
-      const json = JSON.parse(
-        (
-          await readFile(join(__dirname, `../geojson/${foundYear}.geojson`))
-        ).toString()
-      );
-
-      return json;
-    }
-  );
+  await f.register(mapRoutes, {
+    prefix: "/maps",
+  });
 
   return f.withTypeProvider<ZodTypeProvider>();
 }
