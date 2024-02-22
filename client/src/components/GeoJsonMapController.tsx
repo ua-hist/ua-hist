@@ -2,7 +2,7 @@ import { Feature } from "geojson";
 import L from "leaflet";
 import { useEffect, useRef } from "react";
 import { useMap } from "react-leaflet";
-import { colors } from '../../data/colors';
+import { colors } from "../../data/colors";
 
 export const MapController = ({ features }: { features: Feature<any>[] }) => {
   const map = useMap();
@@ -10,7 +10,7 @@ export const MapController = ({ features }: { features: Feature<any>[] }) => {
   const layerRef = useRef<L.Layer>();
 
   useEffect(() => {
-    const getColor = (name: string) => colors[name as keyof typeof colors];
+    const getColor = (name: string) => colors[name];
 
     if (layerRef.current) {
       map.removeLayer(layerRef.current);
@@ -20,11 +20,13 @@ export const MapController = ({ features }: { features: Feature<any>[] }) => {
     layerRef.current = group;
 
     features.forEach((f) => {
+      const color = getColor(f.properties!["NAME"]) || "grey";
+
       group.addLayer(
         L.geoJSON(f, {
           style: {
-            fillColor: getColor(f.properties!["NAME"]),
-            color: getColor(f.properties!["NAME"]),
+            fillColor: color,
+            color: color,
           },
           onEachFeature: function (feature, layer) {
             const name = feature.properties["NAME"];
