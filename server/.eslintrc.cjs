@@ -1,13 +1,13 @@
-const stylistic = require('@stylistic/eslint-plugin')
+const stylistic = require("@stylistic/eslint-plugin");
 
 const customized = stylistic.configs.customize({
   // the following options are the default values
   indent: 2,
-  quotes: 'double',
+  quotes: "double",
   semi: true,
-  arrowParens: 'always',
+  arrowParens: "always",
   // ...
-})
+});
 
 module.exports = {
   parser: "@typescript-eslint/parser",
@@ -17,9 +17,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["@typescript-eslint/eslint-plugin", "@stylistic"],
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-  ],
+  extends: ["plugin:@typescript-eslint/recommended"],
   root: true,
   env: {
     node: true,
@@ -31,10 +29,11 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
     // "require-await": "error",
     // "@typescript-eslint/require-await": "warn",
     "@typescript-eslint/no-floating-promises": "error",
     ...customized.rules,
+    "@stylistic/brace-style": "off",
   },
-}
+};
