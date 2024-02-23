@@ -23,10 +23,13 @@ const replaceLinks = (record: HistoryEvent): HistoryEvent => {
 
 export const getAllEvents = async (): Promise<HistoryEvent[]> => {
   return Promise.resolve(events).then((records: HistoryEvent[]) =>
-    records.map(replaceLinks).map((r, i) => {
-      r.startYear = dates[i];
+    records
+      .map(replaceLinks)
+      .map((r, i) => {
+        r.startYear = dates[i];
 
-      return r;
-    })
+        return r;
+      })
+      .filter((e) => e.startYear && e.startYear > -500)
   );
 };
