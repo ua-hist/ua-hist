@@ -35,6 +35,10 @@ $sidebar-top-height: 5rem;
       background-color: rgb(228, 235, 255);
     }
 
+    &.selected {
+      background-color: rgb(194, 210, 255);
+    }
+
     .event_time {
       width: 30%;
       display: flex;

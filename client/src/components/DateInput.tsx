@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function DateInput(props: {
   date: number;
@@ -7,6 +7,12 @@ export function DateInput(props: {
   const { date, setDate } = props;
 
   const [value, setValue] = useState<number>(date);
+
+  useEffect(() => {
+    if (value !== date) {
+      setValue(date);
+    }
+  }, [date, value]);
 
   return (
     <form
