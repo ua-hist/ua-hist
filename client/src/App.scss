@@ -11,7 +11,7 @@
   height: 100vh;
 }
 
-$sidebar-top-height: 2rem;
+$sidebar-top-height: 5rem;
 
 .sidebar_top {
   height: $sidebar-top-height;
@@ -22,6 +22,7 @@ $sidebar-top-height: 2rem;
   flex-direction: column;
   overflow-y: scroll;
   height: calc(100% - $sidebar-top-height);
+  width: 100%;
 
   .event {
     width: 100%;
@@ -51,7 +52,7 @@ $sidebar-top-height: 2rem;
 }
 
 @media screen and (max-width: 900px) {
-  .events_list {
+  .sidebar {
     width: 50%;
   }
 }

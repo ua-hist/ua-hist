@@ -16,13 +16,19 @@ export function DateInput(props: {
         setDate(value);
       }}
     >
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => {
-          setValue(+e.target.value);
-        }}
-      />
+      <div className="flex flex-row gap-2">
+        <div>Date: </div>
+
+        <div>
+          <input
+            type="number"
+            value={value}
+            onChange={(e) => {
+              setValue(+e.target.value);
+            }}
+          />
+        </div>
+      </div>
     </form>
   );
 }

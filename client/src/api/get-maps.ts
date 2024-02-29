@@ -1,11 +1,9 @@
-import { Feature, MultiPolygon, Polygon } from "geojson";
+import { Feature, FeatureCollection, MultiPolygon } from "geojson";
 import { apiUrl } from "./get-events";
 
-export function getMaps(year: number): Promise<Feature<Polygon>[]> {
+export function getMaps(year: number): Promise<Feature<MultiPolygon>[]> {
   return fetch(apiUrl + "/maps/" + year)
-    .then((res) => res.json())
-    .then((data) =>
-      data.features.filter((f: Feature<MultiPolygon>) => f.properties!["NAME"])
-    )
+    .then((res) => res.json() as unknown as FeatureCollection<MultiPolygon>)
+    .then((data) => data.features.filter((f) => f.properties!["NAME"]))
     .catch(() => []);
 }
