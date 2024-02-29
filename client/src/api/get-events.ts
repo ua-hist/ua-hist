@@ -1,5 +1,4 @@
-import { dates } from "./dates";
-import { events } from "./events";
+import { events } from "../data/events";
 
 export const apiUrl = "http://localhost:3000";
 
@@ -12,24 +11,6 @@ export type HistoryEvent = {
   startYear?: number;
 };
 
-const replaceLinks = (record: HistoryEvent): HistoryEvent => {
-  const markup = record.eventsMarkup.replace(
-    new RegExp(`href="/wiki`, "g"),
-    `href="https://uk.wikipedia.org/wiki`
-  );
-
-  return { ...record, eventsMarkup: markup };
-};
-
 export const getAllEvents = async (): Promise<HistoryEvent[]> => {
-  return Promise.resolve(events).then((records: HistoryEvent[]) =>
-    records
-      .map(replaceLinks)
-      .map((r, i) => {
-        r.startYear = dates[i];
-
-        return r;
-      })
-      .filter((e) => e.startYear && e.startYear > -500)
-  );
+  return Promise.resolve(events).then((records: HistoryEvent[]) => records);
 };
