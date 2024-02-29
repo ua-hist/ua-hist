@@ -1,6 +1,20 @@
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer } from "react-leaflet";
+import "./MapSection.scss";
+import { Feature } from "geojson";
+import { useEffect, useState } from "react";
+import { getMaps } from "../api/get-maps";
+import { MapController } from "./GeoJsonMapController";
+import { TileLayerContainer } from "./TileLayerContainer";
 
-export function MapSection() {
+export function MapSection(props: { date: number }) {
+  const { date } = props;
+
+  const [features, setFeatures] = useState<Feature<any>[]>([]);
+
+  useEffect(() => {
+    getMaps(date).then(setFeatures);
+  }, [date]);
+
   return (
     <div className="map_wrapper" style={{ height: "100vh" }}>
       <MapContainer
@@ -9,10 +23,8 @@ export function MapSection() {
         zoom={6}
         scrollWheelZoom={true}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        <TileLayerContainer />
+        <MapController features={features} />
       </MapContainer>
     </div>
   );

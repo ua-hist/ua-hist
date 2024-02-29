@@ -3,8 +3,13 @@ import fastifyCors from "@fastify/cors";
 import prismaPlugin from "./plugins/prisma";
 import { Prisma } from "@prisma/client";
 import { z } from "zod";
-import { validatorCompiler, serializerCompiler, ZodTypeProvider } from "fastify-type-provider-zod";
+import {
+  validatorCompiler,
+  serializerCompiler,
+  ZodTypeProvider,
+} from "fastify-type-provider-zod";
 import eventRoutes from "./routes/events";
+import mapRoutes from "./routes/maps";
 import swaggerPlugin from "./plugins/swagger";
 
 export async function build(): Promise<FastifyZod> {
@@ -44,6 +49,10 @@ export async function build(): Promise<FastifyZod> {
 
   await f.register(eventRoutes, {
     prefix: "/events",
+  });
+
+  await f.register(mapRoutes, {
+    prefix: "/maps",
   });
 
   return f.withTypeProvider<ZodTypeProvider>();
