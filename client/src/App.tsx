@@ -14,9 +14,13 @@ function App() {
       <div className="map">
         <MapSection date={date} />
       </div>
-      <div className="events_list">
-        <DateInput date={date} setDate={setDate} />
-        <TimeLineList setDate={setDate} />
+      <div className="sidebar">
+        <div className="sidebar_top">
+          <DateInput date={date} setDate={setDate} />
+        </div>
+        <div className="events_list">
+          <TimeLineList setDate={setDate} />
+        </div>
       </div>
     </div>
   );

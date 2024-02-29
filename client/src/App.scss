@@ -6,12 +6,22 @@
   flex: 1;
 }
 
-.events_list {
-  display: flex;
+.sidebar {
   width: 40%;
   height: 100vh;
+}
+
+$sidebar-top-height: 2rem;
+
+.sidebar_top {
+  height: $sidebar-top-height;
+}
+
+.events_list {
+  display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  height: calc(100% - $sidebar-top-height);
 
   .event {
     width: 100%;
