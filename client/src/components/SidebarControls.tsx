@@ -19,7 +19,7 @@ export function SidebarControls(props: {
   const { date, setDate, mapMode, setMapMode } = props;
 
   return (
-    <div className="sidebar_top">
+    <div className="sidebar_top py-2 px-5">
       <div className="flex flex-col">
         <DateInput date={date} setDate={setDate} />
         <div className="flex flex-row">
