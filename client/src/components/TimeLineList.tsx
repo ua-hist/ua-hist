@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
 import { HistoryEvent, getAllEvents } from "../api/get-events";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@radix-ui/react-accordion";
 
 export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
   const [events, setEvents] = useState<HistoryEvent[]>([]);
@@ -18,6 +24,14 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
 
   return (
     <>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1">
+          <AccordionTrigger>Is it accessible?</AccordionTrigger>
+          <AccordionContent>
+            Yes. It adheres to the WAI-ARIA design pattern.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
       {events.map((event) => (
         <div
           className="event"
