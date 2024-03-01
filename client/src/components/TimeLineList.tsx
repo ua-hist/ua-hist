@@ -39,7 +39,7 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
     <>
       <Accordion type="single" collapsible className="w-full p-10">
         {sliceIntoChunks(events, 20).map((chunk, i) => (
-          <AccordionItem value={"item-" + i}>
+          <AccordionItem value={"item-" + i} key={i}>
             <AccordionTrigger className="text-md">
               {getTriggerText(chunk[0], chunk[chunk.length - 1])}
             </AccordionTrigger>
