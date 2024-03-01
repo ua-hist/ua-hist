@@ -41,10 +41,15 @@ export const MapController = ({ features }: { features: Feature<any>[] }) => {
               className: "territory_tooltip",
             });
           },
-        })
+        }),
       );
       map.addLayer(group);
     });
+    const resizeObserver = new ResizeObserver(() => {
+      map.invalidateSize();
+    });
+
+    resizeObserver.observe(map.getContainer());
   }, [features, map]);
 
   return <></>;

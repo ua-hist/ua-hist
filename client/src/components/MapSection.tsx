@@ -16,9 +16,9 @@ export function MapSection(props: { date: number }) {
   }, [date]);
 
   return (
-    <div className="map_wrapper" style={{ height: "100vh" }}>
+    <div style={{ height: "100vh" }}>
       <MapContainer
-        style={{ height: "100vh" }}
+        style={{ height: "100%", width: "100%" }}
         center={[50.4504, 30.5245]}
         zoom={6}
         scrollWheelZoom={true}

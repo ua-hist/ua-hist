@@ -36,7 +36,9 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
       <Accordion type="single" collapsible className="w-full p-10">
         {sliceIntoChunks(events, 20).map((chunk, i) => (
           <AccordionItem value={"item-" + i}>
-            <AccordionTrigger>{chunk[0].time}</AccordionTrigger>
+            <AccordionTrigger className="items-center">
+              {chunk[0].startYear} to {chunk[chunk.length - 1].startYear}
+            </AccordionTrigger>
             {chunk.map((event) => (
               <AccordionContent>
                 <div

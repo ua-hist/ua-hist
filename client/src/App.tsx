@@ -5,19 +5,30 @@ import { MapSection } from "./components/MapSection";
 import { useState } from "react";
 import { DateInput } from "./components/DateInput";
 import { TimeLineList } from "./components/TimeLineList";
+import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from "./components/ui/resizable";
 
 function App() {
   const [date, setDate] = useState<number>(900);
 
   return (
-    <div className="main">
-      <div className="map">
-        <MapSection date={date} />
-      </div>
-      <div className="events_list">
-        <DateInput date={date} setDate={setDate} />
-        <TimeLineList setDate={setDate} />
-      </div>
+    <div>
+      <ResizablePanelGroup direction="horizontal">
+        <ResizablePanel>
+          <div className="map">
+            <MapSection date={date} />
+          </div>
+        </ResizablePanel>
+        <ResizableHandle withHandle />
+        <ResizablePanel>
+          <div className="events_list h-screen overflow-auto">
+            <TimeLineList setDate={setDate} />
+          </div>
+        </ResizablePanel>
+      </ResizablePanelGroup>
     </div>
   );
 }
