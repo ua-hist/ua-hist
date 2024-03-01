@@ -34,9 +34,9 @@ export function MapSection(props: { date: number; mapMode: MapDisplayMode }) {
   const bounds = L.latLngBounds(corner1, corner2);
 
   return (
-    <div className="map_wrapper" style={{ height: "100vh" }}>
+    <div style={{ height: "100vh" }}>
       <MapContainer
-        style={{ height: "100vh" }}
+        style={{ height: "100%", width: "100%" }}
         center={StorageHelper.get("center", [50.4504, 30.5245])}
         zoom={StorageHelper.get("zoom", 5)}
         scrollWheelZoom={true}

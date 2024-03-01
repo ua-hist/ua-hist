@@ -4,6 +4,18 @@ import "./App.scss";
 import { MapSection } from "./components/MapSection";
 import { useEffect, useState } from "react";
 import { TimeLineList } from "./components/TimeLineList";
+import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from "./components/ui/resizable";
+
+interface SideBarProps {
+  children?: React.ReactNode;
+}
+function SideBar({ children }: SideBarProps) {
+  return <div className="h-screen overflow-auto">{children}</div>;
+}
 import { StorageHelper } from "./utils/storage";
 import { MapDisplayMode, SidebarControls } from "./components/SidebarControls";
 
@@ -22,20 +34,20 @@ function App() {
   }, [date]);
 
   return (
-    <div className="main">
-      <div className="map">
-        <MapSection mapMode={mapMode} date={date} />
-      </div>
-      <div className="sidebar">
-        <SidebarControls
-          date={date}
-          setDate={setDate}
-          mapMode={mapMode}
-          setMapMode={setMapMode}
-        />
-
-        <TimeLineList setDate={setDate} />
-      </div>
+    <div>
+      <ResizablePanelGroup direction="horizontal">
+        <ResizablePanel>
+          <div className="map">
+            <MapSection date={date} />
+          </div>
+        </ResizablePanel>
+        <ResizableHandle withHandle />
+        <ResizablePanel maxSize={50} minSize={20} defaultSize={30}>
+          <SideBar>
+            <TimeLineList setDate={setDate} />
+          </SideBar>
+        </ResizablePanel>
+      </ResizablePanelGroup>
     </div>
   );
 }
