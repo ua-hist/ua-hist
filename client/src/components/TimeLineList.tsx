@@ -40,7 +40,7 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
               {chunk[0].startYear} to {chunk[chunk.length - 1].startYear}
             </AccordionTrigger>
             {chunk.map((event) => (
-              <AccordionContent>
+              <AccordionContent key={event.id}>
                 <div
                   className="event"
                   key={event.id}

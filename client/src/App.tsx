@@ -23,7 +23,7 @@ function App() {
           </div>
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel>
+        <ResizablePanel maxSize={50} minSize={20} defaultSize={30}>
           <div className="events_list h-screen overflow-auto">
             <TimeLineList setDate={setDate} />
           </div>
