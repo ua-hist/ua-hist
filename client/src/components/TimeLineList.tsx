@@ -18,41 +18,7 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
     StorageHelper.get("selectedEventId", defaultEvent.id),
   );
 
-  function getSelectedAccordionIndex(chunks: { events: HistoryEvent[] }[]) {
-    return chunks.findIndex((c) =>
-      c.events.find((e) => e.id === selectedEventId),
-    );
-  }
-
   const listRef = useRef<HTMLDivElement>(null);
-
-  async function scrollIntoEvent1(events: HistoryEvent[]) {
-    const list = listRef.current;
-
-    if (!list) {
-      return;
-    }
-
-    await new Promise((r) => setTimeout(r, 100));
-
-    const chunks = getEventChunks(events);
-    const selectedAccordion = chunks.findIndex((c) =>
-      c.events.find(
-        (e) => e.id === StorageHelper.get("selectedEventId", defaultEvent.id),
-      ),
-    );
-
-    if (selectedAccordion < 0) {
-      return;
-    }
-
-    const selectedEventEl = list.querySelector(
-      `.accord_item_${selectedAccordion}`,
-    );
-    if (selectedEventEl) {
-      selectedEventEl.scrollIntoView();
-    }
-  }
 
   async function scrollIntoEvent() {
     const list = listRef.current;
@@ -80,7 +46,6 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
         setEvents(res);
         return res;
       })
-      // .then((events) => scrollIntoEvent1(events));
       .then(() => scrollIntoEvent());
   }, []);
 
@@ -92,7 +57,13 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
 
   const chunks = getEventChunks(events);
 
-  const selectedAccordion = getSelectedAccordionIndex(chunks);
+  function getSelectedAccordion(chunks: { events: HistoryEvent[] }[]) {
+    const selectedAccordion = chunks.findIndex((c) =>
+      c.events.find((e) => e.id === selectedEventId),
+    );
+
+    return selectedAccordion >= 0 ? `item-${selectedAccordion}` : undefined;
+  }
 
   return (
     <div className="events_list" ref={listRef}>
@@ -101,9 +72,7 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
           type="single"
           collapsible
           className="w-full p-10"
-          defaultValue={
-            selectedAccordion >= 0 ? `item-${selectedAccordion}` : undefined
-          }
+          defaultValue={getSelectedAccordion(chunks)}
         >
           {chunks.map((chunk, i) => (
             <AccordionItem
