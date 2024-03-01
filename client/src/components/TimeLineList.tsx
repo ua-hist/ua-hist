@@ -2,10 +2,19 @@ import { useState, useEffect } from "react";
 import { HistoryEvent, getAllEvents } from "../api/get-events";
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent,
-} from "@radix-ui/react-accordion";
+} from "./ui/accordion";
+
+function sliceIntoChunks<T>(arr: T[], chunkSize: number): T[][] {
+  const res = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    const chunk = arr.slice(i, i + chunkSize);
+    res.push(chunk);
+  }
+  return res;
+}
 
 export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
   const [events, setEvents] = useState<HistoryEvent[]>([]);
@@ -24,31 +33,32 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
 
   return (
     <>
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
-          </AccordionContent>
-        </AccordionItem>
+      <Accordion type="single" collapsible className="w-full p-10">
+        {sliceIntoChunks(events, 20).map((chunk, i) => (
+          <AccordionItem value={"item-" + i}>
+            <AccordionTrigger>{chunk[0].time}</AccordionTrigger>
+            {chunk.map((event) => (
+              <AccordionContent>
+                <div
+                  className="event"
+                  key={event.id}
+                  onClick={() => handleEventClick(event)}
+                >
+                  <div className="event_time">
+                    <div>{event.time}</div>
+                  </div>
+                  <div
+                    className="event_desc"
+                    dangerouslySetInnerHTML={{
+                      __html: event.eventsMarkup,
+                    }}
+                  ></div>
+                </div>
+              </AccordionContent>
+            ))}
+          </AccordionItem>
+        ))}
       </Accordion>
-      {events.map((event) => (
-        <div
-          className="event"
-          key={event.id}
-          onClick={() => handleEventClick(event)}
-        >
-          <div className="event_time">
-            <div>{event.time}</div>
-          </div>
-          <div
-            className="event_desc"
-            dangerouslySetInnerHTML={{
-              __html: event.eventsMarkup,
-            }}
-          ></div>
-        </div>
-      ))}
     </>
   );
 }
