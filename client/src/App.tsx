@@ -9,6 +9,8 @@ import {
   ResizablePanel,
   ResizableHandle,
 } from "./components/ui/resizable";
+import { StorageHelper } from "./utils/storage";
+import { MapDisplayMode, SidebarControls } from "./components/SidebarControls";
 
 interface SideBarProps {
   children?: React.ReactNode;
@@ -16,8 +18,6 @@ interface SideBarProps {
 function SideBar({ children }: SideBarProps) {
   return <div className="h-screen overflow-auto">{children}</div>;
 }
-import { StorageHelper } from "./utils/storage";
-import { MapDisplayMode, SidebarControls } from "./components/SidebarControls";
 
 function App() {
   const [date, setDate] = useState<number>(StorageHelper.get("date", 900));
@@ -38,14 +38,20 @@ function App() {
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel>
           <div className="map">
-            <MapSection date={date} />
+            <MapSection date={date} mapMode={mapMode} />
           </div>
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel maxSize={50} minSize={20} defaultSize={30}>
-          <SideBar>
+          <div className="sidebar h-screen">
+            <SidebarControls
+              date={date}
+              setDate={setDate}
+              mapMode={mapMode}
+              setMapMode={setMapMode}
+            />
             <TimeLineList setDate={setDate} />
-          </SideBar>
+          </div>
         </ResizablePanel>
       </ResizablePanelGroup>
     </div>

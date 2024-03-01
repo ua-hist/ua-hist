@@ -6,11 +6,11 @@ import { getMaps } from "../api/get-maps";
 import { GeoJsonLayer } from "./GeoJsonLayer";
 import { TileLayerContainer } from "./TileLayerContainer";
 import L from "leaflet";
-import { MapDisplayMode } from "../App";
 import { getIntersectingShapes } from "../utils/get-intersecting-shapes";
 import { uaBounds } from "../data/uabounds";
 import { MapEventsLayer } from "./MapEventsLayer";
 import { StorageHelper } from "../utils/storage";
+import { MapDisplayMode } from "./SidebarControls";
 
 export function MapSection(props: { date: number; mapMode: MapDisplayMode }) {
   const { date, mapMode } = props;
