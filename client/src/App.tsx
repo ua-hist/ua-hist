@@ -11,6 +11,13 @@ import {
   ResizableHandle,
 } from "./components/ui/resizable";
 
+interface SideBarProps {
+  children?: React.ReactNode;
+}
+function SideBar({ children }: SideBarProps) {
+  return <div className="h-screen overflow-auto">{children}</div>;
+}
+
 function App() {
   const [date, setDate] = useState<number>(900);
 
@@ -24,9 +31,9 @@ function App() {
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel maxSize={50} minSize={20} defaultSize={30}>
-          <div className="events_list h-screen overflow-auto">
+          <SideBar>
             <TimeLineList setDate={setDate} />
-          </div>
+          </SideBar>
         </ResizablePanel>
       </ResizablePanelGroup>
     </div>

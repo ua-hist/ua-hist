@@ -31,13 +31,17 @@ export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
     record.startYear && setDate(record.startYear);
   };
 
+  function getTriggerText(first: HistoryEvent, last: HistoryEvent) {
+    return `Від ${first.startYear && first.startYear < 0 ? first.time : first.startYear} до ${last.time}`;
+  }
+
   return (
     <>
       <Accordion type="single" collapsible className="w-full p-10">
         {sliceIntoChunks(events, 20).map((chunk, i) => (
           <AccordionItem value={"item-" + i}>
-            <AccordionTrigger className="items-center">
-              {chunk[0].startYear} to {chunk[chunk.length - 1].startYear}
+            <AccordionTrigger className="text-md">
+              {getTriggerText(chunk[0], chunk[chunk.length - 1])}
             </AccordionTrigger>
             {chunk.map((event) => (
               <AccordionContent key={event.id}>
