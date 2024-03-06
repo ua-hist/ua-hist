@@ -1,10 +1,14 @@
-import { Feature } from "geojson";
+import { Feature, MultiPolygon } from "geojson";
 import L from "leaflet";
 import { useEffect, useRef } from "react";
 import { useMap } from "react-leaflet";
 import { colors } from "../data/colors";
 
-export const MapController = ({ features }: { features: Feature<any>[] }) => {
+export const GeoJsonLayer = ({
+  features,
+}: {
+  features: Feature<MultiPolygon>[];
+}) => {
   const map = useMap();
 
   const layerRef = useRef<L.Layer>();
@@ -26,7 +30,9 @@ export const MapController = ({ features }: { features: Feature<any>[] }) => {
         L.geoJSON(f, {
           style: {
             fillColor: color,
+            fillOpacity: 0.3,
             color: color,
+            weight: 3,
           },
           onEachFeature: function (feature, layer) {
             const name = feature.properties["NAME"];

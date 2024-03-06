@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function DateInput(props: {
   date: number;
@@ -8,6 +8,12 @@ export function DateInput(props: {
 
   const [value, setValue] = useState<number>(date);
 
+  useEffect(() => {
+    if (value !== date) {
+      setValue(date);
+    }
+  }, [date, value]);
+
   return (
     <form
       onSubmit={async (e) => {
@@ -16,13 +22,19 @@ export function DateInput(props: {
         setDate(value);
       }}
     >
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => {
-          setValue(+e.target.value);
-        }}
-      />
+      <div className="flex flex-row gap-2">
+        <div>Date: </div>
+
+        <div>
+          <input
+            type="number"
+            value={value}
+            onChange={(e) => {
+              setValue(+e.target.value);
+            }}
+          />
+        </div>
+      </div>
     </form>
   );
 }
