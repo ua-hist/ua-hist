@@ -37,7 +37,7 @@ export function MapSection(props: { date: number }) {
   const bounds = L.latLngBounds(corner1, corner2);
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "calc(100vh - 4rem)" }}>
       <MapContainer
         style={{ height: "100%", width: "100%" }}
         center={StorageHelper.get("center", [50.4504, 30.5245])}
