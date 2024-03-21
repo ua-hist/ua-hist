@@ -11,9 +11,11 @@ import { uaBounds } from "../../data/uabounds";
 import { MapEventsLayer } from "./MapEventsLayer";
 import { StorageHelper } from "../../utils/storage";
 import { useSettingsContext } from "../settings/SettingsContext";
+import { useDateContext } from "../date/DateContext";
 
-export function MapSection(props: { date: number }) {
-  const { date } = props;
+export function MapSection() {
+  const { date } = useDateContext();
+
   const {
     settings: { mapMode },
   } = useSettingsContext();

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { HistoryEvent, getAllEvents } from "../api/get-events";
-import { StorageHelper } from "../utils/storage";
-import { events } from "../data/events";
+import { HistoryEvent, getAllEvents } from "../../api/get-events";
+import { StorageHelper } from "../../utils/storage";
+import { events } from "../../data/events";
 
 const defaultEvent = events[120];
 import {
@@ -9,36 +9,22 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./ui/accordion";
-import { getEventChunks } from "../utils/get-event-chunks";
+} from "../ui/accordion";
+import { getEventChunks } from "../../utils/get-event-chunks";
+import { useDateContext } from "../date/DateContext";
+import { useScrollIntoEvent } from "./useScrollIntoEvent";
 
-export function TimeLineList({ setDate }: { setDate: (d: number) => void }) {
+export function TimeLineList() {
   const [events, setEvents] = useState<HistoryEvent[]>([]);
   const [selectedEventId, setSelectedEventId] = useState<string>(
     StorageHelper.get("selectedEventId", defaultEvent.id),
   );
 
+  const { setDate } = useDateContext();
+
   const listRef = useRef<HTMLDivElement>(null);
 
-  async function scrollIntoEvent() {
-    const list = listRef.current;
-
-    if (!list) {
-      return;
-    }
-
-    console.log(selectedEventId);
-
-    await new Promise((r) => setTimeout(r, 100));
-
-    const selectedEventEl = list.querySelector(
-      `[data-id="${selectedEventId}"]`,
-    );
-
-    if (selectedEventEl) {
-      selectedEventEl.scrollIntoView();
-    }
-  }
+  const scrollIntoEvent = useScrollIntoEvent(listRef, selectedEventId);
 
   useEffect(() => {
     getAllEvents()
