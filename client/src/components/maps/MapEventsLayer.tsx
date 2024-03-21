@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
-import { StorageHelper } from "../utils/storage";
+import { StorageHelper } from "../../utils/storage";
 
 export function MapEventsLayer() {
   const map = useMap();

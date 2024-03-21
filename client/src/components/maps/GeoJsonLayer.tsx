@@ -2,7 +2,7 @@ import { Feature, MultiPolygon } from "geojson";
 import L from "leaflet";
 import { useEffect, useRef } from "react";
 import { useMap } from "react-leaflet";
-import { colors } from "../data/colors";
+import { colors } from "../../data/colors";
 
 export const GeoJsonLayer = ({
   features,

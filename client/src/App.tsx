@@ -1,7 +1,7 @@
 import "leaflet/dist/leaflet.css";
 import "leaflet";
 import "./App.scss";
-import { MapSection } from "./components/MapSection";
+import { MapSection } from "./components/maps/MapSection";
 import { useEffect, useState } from "react";
 import { TimeLineList } from "./components/TimeLineList";
 import {

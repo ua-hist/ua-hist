@@ -2,15 +2,15 @@ import { MapContainer } from "react-leaflet";
 import "./MapSection.scss";
 import { Feature, MultiPolygon } from "geojson";
 import { useEffect, useMemo, useState } from "react";
-import { getMaps } from "../api/get-maps";
+import { getMaps } from "../../api/get-maps";
 import { GeoJsonLayer } from "./GeoJsonLayer";
 import { TileLayerContainer } from "./TileLayerContainer";
 import L from "leaflet";
-import { getIntersectingShapes } from "../utils/get-intersecting-shapes";
-import { uaBounds } from "../data/uabounds";
+import { getIntersectingShapes } from "../../utils/get-intersecting-shapes";
+import { uaBounds } from "../../data/uabounds";
 import { MapEventsLayer } from "./MapEventsLayer";
-import { StorageHelper } from "../utils/storage";
-import { useSettingsContext } from "./settings/SettingsContext";
+import { StorageHelper } from "../../utils/storage";
+import { useSettingsContext } from "../settings/SettingsContext";
 
 export function MapSection(props: { date: number }) {
   const { date } = props;
