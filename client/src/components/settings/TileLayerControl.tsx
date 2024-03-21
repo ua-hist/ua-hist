@@ -27,7 +27,7 @@ export function TileLayerControl() {
         <SelectContent>
           {tileLayers.map((tileLayer, i) => (
             <SelectItem key={tileLayer.url} value={`${i}`}>
-              {`${i}`}
+              {tileLayer.title}
             </SelectItem>
           ))}
         </SelectContent>
