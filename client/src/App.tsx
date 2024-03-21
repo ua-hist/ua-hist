@@ -10,7 +10,7 @@ import {
   ResizableHandle,
 } from "./components/ui/resizable";
 import { StorageHelper } from "./utils/storage";
-import { SettingsPopover } from "./components/settings/SettingsPopover";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   const [date, setDate] = useState<number>(StorageHelper.get("date", 900));
@@ -25,13 +25,7 @@ function App() {
 
   return (
     <div>
-      <div className="navbar_placeholder p-5 h-16"></div>
-      <div className="navbar fixed top-0 left-0 right-0 p-5 h-16 flex justify-between align-center shadow-[#b6b6b6] shadow-md">
-        <div>Ukraine History Atlas</div>
-        <div>
-          <SettingsPopover />
-        </div>
-      </div>
+      <Navbar />
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel>
           <div className="map">
