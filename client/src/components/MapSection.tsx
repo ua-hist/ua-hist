@@ -10,10 +10,13 @@ import { getIntersectingShapes } from "../utils/get-intersecting-shapes";
 import { uaBounds } from "../data/uabounds";
 import { MapEventsLayer } from "./MapEventsLayer";
 import { StorageHelper } from "../utils/storage";
-import { MapDisplayMode } from "./SidebarControls";
+import { useSettingsContext } from "./settings/SettingsContext";
 
-export function MapSection(props: { date: number; mapMode: MapDisplayMode }) {
-  const { date, mapMode } = props;
+export function MapSection(props: { date: number }) {
+  const { date } = props;
+  const {
+    settings: { mapMode },
+  } = useSettingsContext();
 
   const [features, setFeatures] = useState<Feature<MultiPolygon>[]>([]);
 

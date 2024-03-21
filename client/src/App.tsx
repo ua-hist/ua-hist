@@ -10,20 +10,11 @@ import {
   ResizableHandle,
 } from "./components/ui/resizable";
 import { StorageHelper } from "./utils/storage";
-import { MapDisplayMode, SidebarControls } from "./components/SidebarControls";
-
-interface SideBarProps {
-  children?: React.ReactNode;
-}
-function SideBar({ children }: SideBarProps) {
-  return <div className="h-screen overflow-auto">{children}</div>;
-}
+import { SidebarControls } from "./components/SidebarControls";
+import { SettingsPopover } from "./components/settings/SettingsPopover";
 
 function App() {
   const [date, setDate] = useState<number>(StorageHelper.get("date", 900));
-  const [mapMode, setMapMode] = useState<MapDisplayMode>(
-    StorageHelper.get("mapMode", "europe"),
-  );
 
   useEffect(() => {
     const persistedDate = StorageHelper.get<number | null>("date", null);
@@ -35,21 +26,22 @@ function App() {
 
   return (
     <div>
+      <div className="top_menu p-5 flex justify-between">
+        <div>Ukraine History Atlas</div>
+        <div>
+          <SettingsPopover />
+        </div>
+      </div>
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel>
           <div className="map">
-            <MapSection date={date} mapMode={mapMode} />
+            <MapSection date={date} />
           </div>
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel maxSize={50} minSize={20} defaultSize={30}>
           <div className="sidebar h-screen">
-            <SidebarControls
-              date={date}
-              setDate={setDate}
-              mapMode={mapMode}
-              setMapMode={setMapMode}
-            />
+            <SidebarControls date={date} setDate={setDate} />
             <TimeLineList setDate={setDate} />
           </div>
         </ResizablePanel>
