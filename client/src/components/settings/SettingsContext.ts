@@ -1,8 +1,9 @@
 import { createContext, useContext } from "react";
-import { MapDisplayMode } from "./SettingsControls";
+import { MapDisplayMode } from "./MapModeControl";
 
 export type Settings = {
   mapMode: MapDisplayMode;
+  tileLayerId: number;
 };
 
 export type SettingsContextType = {

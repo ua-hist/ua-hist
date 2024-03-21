@@ -5,7 +5,7 @@ export function SettingsPopover() {
   return (
     <Popover>
       <PopoverTrigger>Settings</PopoverTrigger>
-      <PopoverContent className="w-96">
+      <PopoverContent className="w-96 h-36">
         <SettingsControls />
       </PopoverContent>
     </Popover>

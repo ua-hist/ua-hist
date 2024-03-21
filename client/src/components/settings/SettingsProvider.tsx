@@ -6,6 +6,7 @@ export function SettingsProvider(props: PropsWithChildren) {
   const [settings, setSettings_] = useState<Settings>(
     StorageHelper.get<Settings>("settings", {
       mapMode: "ukraine",
+      tileLayerId: 0,
     }),
   );
 

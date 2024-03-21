@@ -1,20 +1,13 @@
 import { TileLayer } from "react-leaflet";
+import { tileLayers } from "../settings/tile-layers";
+import { useSettingsContext } from "../settings/SettingsContext";
 
 export function TileLayerContainer() {
-  const tileLayers: { url: string; attribution: string }[] = [
-    {
-      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    },
-    {
-      url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
-      attribution:
-        "Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS",
-    },
-  ];
+  const {
+    settings: { tileLayerId },
+  } = useSettingsContext();
 
-  const tileLayer = tileLayers[0];
+  const tileLayer = tileLayers[tileLayerId];
 
   return (
     <>

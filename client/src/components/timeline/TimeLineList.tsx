@@ -53,7 +53,7 @@ export function TimeLineList() {
 
   return (
     <div className="events_list" ref={listRef}>
-      {chunks.length && (
+      {!!chunks.length && (
         <Accordion
           type="single"
           collapsible
