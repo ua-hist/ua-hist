@@ -22,8 +22,11 @@ export function SettingsControls() {
   return (
     <div className="sidebar_top py-2 px-5">
       <div className="flex flex-col">
-        <div className="flex flex-row">
-          <div>Map scope: </div>
+        <div className="flex flex-row justify-between align-center">
+          <div className="flex flex-row justify-center items-center">
+            <div className="font-medium">Map scope</div>
+          </div>
+
           <Select
             defaultValue={settings.mapMode}
             onValueChange={(v: MapDisplayMode) => setSetting("mapMode", v)}

@@ -10,7 +10,7 @@ export function Navbar() {
           <div className="flex flex-row justify-center items-center">
             <img className="w-10 h-10" src={uaIcon} alt="ua_icon_logo" />
           </div>
-          <div className="flex flex-row justify-center items-center ">
+          <div className="flex flex-row justify-center items-center">
             <div className="text-lg font-medium text-slate-800">
               Ukraine History Atlas
             </div>
