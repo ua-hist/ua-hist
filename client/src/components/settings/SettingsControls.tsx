@@ -1,4 +1,5 @@
 import { MapModeControl } from "./MapModeControl";
+import { MapStyleControl } from "./MapStyleControl";
 import { TileLayerControl } from "./TileLayerControl";
 
 export function SettingsControls() {
@@ -6,6 +7,7 @@ export function SettingsControls() {
     <div className="h-full py-2 px-5">
       <div className="h-full flex flex-col justify-between">
         <MapModeControl />
+        <MapStyleControl />
         <TileLayerControl />
       </div>
     </div>

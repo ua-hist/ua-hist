@@ -431,3 +431,5 @@ export const colors: Record<string, string> = {
   Polyanians: "#f51f2b",
   Pechenegs: "#cd42b3",
 };
+
+export const getColor = (name: string) => colors[name];

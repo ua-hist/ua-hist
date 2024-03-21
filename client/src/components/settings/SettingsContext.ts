@@ -4,6 +4,7 @@ import { MapDisplayMode } from "./MapModeControl";
 export type Settings = {
   mapMode: MapDisplayMode;
   tileLayerId: number;
+  mapStyleId: string;
 };
 
 export type SettingsContextType = {

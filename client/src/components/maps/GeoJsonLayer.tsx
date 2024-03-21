@@ -2,7 +2,9 @@ import { Feature, MultiPolygon } from "geojson";
 import L from "leaflet";
 import { useEffect, useRef } from "react";
 import { useMap } from "react-leaflet";
-import { colors } from "../../data/colors";
+import { getColor } from "../../data/colors";
+import { useSettingsContext } from "../settings/SettingsContext";
+import { mapStyles } from "../settings/map-styles";
 
 export const GeoJsonLayer = ({
   features,
@@ -10,11 +12,14 @@ export const GeoJsonLayer = ({
   features: Feature<MultiPolygon>[];
 }) => {
   const map = useMap();
+  const { settings } = useSettingsContext();
 
   const layerRef = useRef<L.Layer>();
 
   useEffect(() => {
-    const getColor = (name: string) => colors[name];
+    const mapStyleFn = mapStyles.find(
+      (s) => s.id === settings.mapStyleId,
+    )?.styleFn;
 
     if (layerRef.current) {
       map.removeLayer(layerRef.current);
@@ -28,7 +33,7 @@ export const GeoJsonLayer = ({
 
       group.addLayer(
         L.geoJSON(f, {
-          style: {
+          style: mapStyleFn?.(f) || {
             fillColor: color,
             fillOpacity: 0.3,
             color: color,
@@ -41,7 +46,7 @@ export const GeoJsonLayer = ({
               return;
             }
 
-            layer.bindTooltip(feature.properties["NAME"], {
+            layer.bindTooltip(name, {
               permanent: true,
               direction: "center",
               className: "territory_tooltip",
@@ -56,7 +61,11 @@ export const GeoJsonLayer = ({
     });
 
     resizeObserver.observe(map.getContainer());
-  }, [features, map]);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [features, map, settings.mapStyleId]);
 
   return <></>;
 };

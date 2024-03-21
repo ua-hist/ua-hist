@@ -3,12 +3,27 @@ import { Settings, SettingsContext } from "./SettingsContext";
 import { StorageHelper } from "../../utils/storage";
 
 export function SettingsProvider(props: PropsWithChildren) {
-  const [settings, setSettings_] = useState<Settings>(
-    StorageHelper.get<Settings>("settings", {
+  function getInitValue() {
+    const defaultValues: Settings = {
       mapMode: "ukraine",
       tileLayerId: 0,
-    }),
-  );
+      mapStyleId: "Archaic",
+    };
+    const savedValue = StorageHelper.get<Settings>("settings", defaultValues);
+
+    Object.keys(defaultValues).forEach((k) => {
+      const key = k as keyof Settings;
+      const saved = savedValue as Record<string, any>;
+
+      if (saved[key] === undefined) {
+        saved[key] = defaultValues[key];
+      }
+    });
+
+    return savedValue;
+  }
+
+  const [settings, setSettings_] = useState<Settings>(() => getInitValue());
 
   const setSettings = (v: Settings) => {
     StorageHelper.set("settings", v);
