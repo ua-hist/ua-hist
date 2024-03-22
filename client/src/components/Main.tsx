@@ -11,7 +11,7 @@ export function Main() {
       <div className="relavite h-screen overflow-hidden">
         <div className="h-screen relative">
           <MapSection />
-          <div className="h-24 absolute -bottom-14 hover:bottom-0 w-full transition-all pb-8 px-96 ">
+          <div className="absolute -bottom-14 hover:bottom-0 w-full transition-all py-10 px-96 ">
             <Slider defaultValue={[33]} max={100} step={1} />
           </div>
         </div>
