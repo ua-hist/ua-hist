@@ -4,14 +4,6 @@ import { Navbar } from "./Navbar";
 import { TimeLineList } from "./timeline/TimeLineList";
 import { Slider } from "./ui/slider";
 
-function Drower() {
-  return (
-    <div className="h-24 absolute -bottom-14 hover:bottom-0 w-full transition-all pb-8 px-96 ">
-      <Slider defaultValue={[33]} max={100} step={1} />
-    </div>
-  );
-}
-
 export function Main() {
   return (
     <div className="!max-h-screen h-screen relative min-h-screen overflow-hidden">
@@ -19,6 +11,9 @@ export function Main() {
       <div className="relavite h-screen overflow-hidden">
         <div className="h-screen relative">
           <MapSection />
+          <div className="h-24 absolute -bottom-14 hover:bottom-0 w-full transition-all pb-8 px-96 ">
+            <Slider defaultValue={[33]} max={100} step={1} />
+          </div>
         </div>
         <Draggable
           axis="x"
@@ -38,7 +33,6 @@ export function Main() {
             </div>
           </div>
         </Draggable>
-        <Drower />
       </div>
     </div>
   );
