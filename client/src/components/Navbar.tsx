@@ -15,7 +15,7 @@ export function SettingsPopover() {
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-96 h-48">
+      <PopoverContent className="w-96 h-48" style={{ zIndex: 1000 }}>
         <SettingsControls />
       </PopoverContent>
     </Popover>
@@ -24,7 +24,7 @@ export function SettingsPopover() {
 
 export function Navbar() {
   return (
-    <div className="px-5 py-3 border-black  shadow-[#b6b6b6] shadow-md bg-slate-50 fixed z-50 top-2 left-14 rounded-lg">
+    <div className="px-5 py-3 border-black  shadow-[#b6b6b6] shadow-md bg-slate-50 fixed z-10 top-2 left-14 rounded-lg">
       <div className="flex justify-between align-center gap-10">
         <div className="flex flex-row gap-4">
           <div className="flex flex-row justify-center items-center">
