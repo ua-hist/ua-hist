@@ -3,6 +3,7 @@ import uaIcon from "../../assets/ua_icon.png";
 import { StorageHelper } from "../../utils/storage";
 import { events } from "../../data/events";
 import { HistoryEvent } from "../../api/get-events";
+import { NavLink } from "react-router-dom";
 
 export function NavbarFull() {
   return (
@@ -16,7 +17,7 @@ export function NavbarFull() {
             </div>
             <div className="flex flex-row justify-center items-center">
               <div className="text-lg font-medium text-slate-800">
-                Ukraine History Atlas
+                <NavLink to={"/"}>Ukraine History Atlas</NavLink>
               </div>
             </div>
           </div>
@@ -39,21 +40,27 @@ export function SavedEventsPage() {
     <div>
       <NavbarFull />
       <div>
-        <div className="flex flex-col w-[60%] m-auto">
-          {savedEventsPopulated.map((event) => (
-            <div className={"event "} data-id={event.id} key={event.id}>
-              <div className="event_time">
-                <div>{event.time}</div>
+        {savedEventsPopulated.length ? (
+          <div className="flex flex-col w-[60%] m-auto">
+            {savedEventsPopulated.map((event) => (
+              <div className={"event "} data-id={event.id} key={event.id}>
+                <div className="event_time">
+                  <div>{event.time}</div>
+                </div>
+                <div
+                  className="event_desc"
+                  dangerouslySetInnerHTML={{
+                    __html: event.eventsMarkup,
+                  }}
+                ></div>
               </div>
-              <div
-                className="event_desc"
-                dangerouslySetInnerHTML={{
-                  __html: event.eventsMarkup,
-                }}
-              ></div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col w-[60%] m-auto justify-center align-center">
+            <div>No saved events yet</div>
+          </div>
+        )}
       </div>
     </div>
   );
