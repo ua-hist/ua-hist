@@ -52,12 +52,11 @@ export function TimeLineList() {
   }
 
   return (
-    <div className="events_list" ref={listRef}>
+    <div className="h-full w-full" ref={listRef}>
       {!!chunks.length && (
         <Accordion
           type="single"
           collapsible
-          className="w-full p-10"
           defaultValue={getSelectedAccordion(chunks)}
         >
           {chunks.map((chunk, i) => (

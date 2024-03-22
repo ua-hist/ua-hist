@@ -39,20 +39,18 @@ export function MapSection() {
   const bounds = L.latLngBounds(corner1, corner2);
 
   return (
-    <div style={{ height: "calc(100vh - 4rem)" }}>
-      <MapContainer
-        style={{ height: "100%", width: "100%" }}
-        center={StorageHelper.get("center", [50.4504, 30.5245])}
-        zoom={StorageHelper.get("zoom", 5)}
-        scrollWheelZoom={true}
-        maxBounds={bounds}
-        maxBoundsViscosity={1.0}
-        minZoom={3}
-      >
-        <TileLayerContainer />
-        <GeoJsonLayer features={filteredFeats} />
-        <MapEventsLayer />
-      </MapContainer>
-    </div>
+    <MapContainer
+      className="h-full z-0"
+      center={StorageHelper.get("center", [50.4504, 30.5245])}
+      zoom={StorageHelper.get("zoom", 5)}
+      scrollWheelZoom={true}
+      maxBounds={bounds}
+      maxBoundsViscosity={1.0}
+      minZoom={3}
+    >
+      <TileLayerContainer />
+      <GeoJsonLayer features={filteredFeats} />
+      <MapEventsLayer />
+    </MapContainer>
   );
 }
