@@ -10,6 +10,7 @@ import {
 } from "fastify-type-provider-zod";
 import eventRoutes from "./routes/events";
 import mapRoutes from "./routes/maps";
+import authRoutes from "./routes/auth";
 import swaggerPlugin from "./plugins/swagger";
 
 export async function build(): Promise<FastifyZod> {
@@ -53,6 +54,10 @@ export async function build(): Promise<FastifyZod> {
 
   await f.register(mapRoutes, {
     prefix: "/maps",
+  });
+
+  await f.register(authRoutes, {
+    prefix: "/auth",
   });
 
   return f.withTypeProvider<ZodTypeProvider>();
