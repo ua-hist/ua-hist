@@ -1,13 +1,18 @@
 import App from "./App";
-import { DateProvider } from "./components/date/DateProvider";
-import { SettingsProvider } from "./components/settings/SettingsProvider";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { SavedEventsPage } from "./components/saved-events/SavedEventsPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "saved",
+    element: <SavedEventsPage />,
+  },
+]);
 
 export function App1() {
-  return (
-    <SettingsProvider>
-      <DateProvider>
-        <App />
-      </DateProvider>
-    </SettingsProvider>
-  );
+  return <RouterProvider router={router} />;
 }
