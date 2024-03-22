@@ -75,13 +75,13 @@
 /*   } */
 /* } */
 /**/
-/* *, */
-/* *::before, */
-/* *::after { */
-/*   box-sizing: border-box; */
-/*   margin: 0; */
-/*   padding: 0; */
-/* } */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 /**/
 /* menu:not(article menu), */
 /* ol:not(article ol), */
