@@ -56,15 +56,6 @@ export const GeoJsonLayer = ({
       );
       map.addLayer(group);
     });
-    const resizeObserver = new ResizeObserver(() => {
-      map.invalidateSize();
-    });
-
-    resizeObserver.observe(map.getContainer());
-
-    return () => {
-      resizeObserver.disconnect();
-    };
   }, [features, map, settings.mapStyleId]);
 
   return <></>;
