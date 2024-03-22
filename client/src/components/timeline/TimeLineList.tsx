@@ -13,6 +13,7 @@ import {
 import { getEventChunks } from "../../utils/get-event-chunks";
 import { useDateContext } from "../date/DateContext";
 import { useScrollIntoEvent } from "./useScrollIntoEvent";
+import { TimeLineEvent } from "./TimeLineEvent";
 
 export function TimeLineList() {
   const [events, setEvents] = useState<HistoryEvent[]>([]);
@@ -70,25 +71,11 @@ export function TimeLineList() {
               </AccordionTrigger>
               {chunk.events.map((event) => (
                 <AccordionContent key={event.id}>
-                  <div
-                    className={
-                      "event " +
-                      (event.id === selectedEventId ? "selected" : "")
-                    }
-                    data-id={event.id}
-                    key={event.id}
-                    onClick={() => handleEventClick(event)}
-                  >
-                    <div className="event_time">
-                      <div>{event.time}</div>
-                    </div>
-                    <div
-                      className="event_desc"
-                      dangerouslySetInnerHTML={{
-                        __html: event.eventsMarkup,
-                      }}
-                    ></div>
-                  </div>
+                  <TimeLineEvent
+                    event={event}
+                    selectedEventId={selectedEventId}
+                    handleEventClick={handleEventClick}
+                  />
                 </AccordionContent>
               ))}
             </AccordionItem>
