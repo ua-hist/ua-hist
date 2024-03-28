@@ -3,16 +3,21 @@ import { MapSection } from "../components/maps/MapSection";
 import { Navbar } from "./Navbar";
 import { TimeLineList } from "./timeline/TimeLineList";
 import { Slider } from "./ui/slider";
+import { useState } from "react";
 
 export function Main() {
+  const [century, setCentury] = useState(2);
+
   return (
     <div className="!max-h-screen h-screen relative min-h-screen overflow-hidden">
       <Navbar />
       <div className="relavite h-screen overflow-hidden">
         <div className="h-screen relative">
           <MapSection />
-          <div className="absolute -bottom-14 hover:bottom-0 w-full transition-all py-10 px-96 ">
-            <Slider defaultValue={[33]} max={100} step={1} />
+          <div className="absolute -bottom-4 hover:bottom-0 w-full transition-all py-4">
+            <div className="container">
+              <Slider defaultValue={[2]} max={10} min={-1} step={1} />
+            </div>
           </div>
         </div>
         <Draggable
