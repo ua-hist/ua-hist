@@ -14,12 +14,15 @@ import { getEventChunks } from "../../utils/get-event-chunks";
 import { useDateContext } from "../date/DateContext";
 import { useScrollIntoEvent } from "./useScrollIntoEvent";
 import { TimeLineEvent } from "./TimeLineEvent";
+import { useTranslation } from "react-i18next";
 
 export function TimeLineList() {
   const [events, setEvents] = useState<HistoryEvent[]>([]);
   const [selectedEventId, setSelectedEventId] = useState<string>(
     StorageHelper.get("selectedEventId", defaultEvent.id),
   );
+
+  const { i18n } = useTranslation();
 
   const { setDate } = useDateContext();
 
@@ -28,13 +31,13 @@ export function TimeLineList() {
   const scrollIntoEvent = useScrollIntoEvent(listRef, selectedEventId);
 
   useEffect(() => {
-    getAllEvents()
+    getAllEvents(i18n.language)
       .then((res) => {
         setEvents(res);
         return res;
       })
       .then(() => scrollIntoEvent());
-  }, []);
+  }, [i18n.language]);
 
   const handleEventClick = (record: HistoryEvent) => {
     setSelectedEventId(record.id);

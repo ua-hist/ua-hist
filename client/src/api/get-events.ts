@@ -1,4 +1,5 @@
 import { events } from "../data/events";
+import { eventsEn } from "../data/events.en";
 
 export const apiUrl = "http://localhost:3000";
 
@@ -11,6 +12,8 @@ export type HistoryEvent = {
   startYear?: number;
 };
 
-export const getAllEvents = async (): Promise<HistoryEvent[]> => {
-  return Promise.resolve(events).then((records: HistoryEvent[]) => records);
+export const getAllEvents = async (locale = "en"): Promise<HistoryEvent[]> => {
+  return Promise.resolve(locale === "en" ? eventsEn : events).then(
+    (records: HistoryEvent[]) => records,
+  );
 };
