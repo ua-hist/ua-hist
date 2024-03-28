@@ -2601,7 +2601,7 @@ export const eventsEn = [
     id: "351935ec-47a6-4298-8e68-8a263f6afd59",
     time: "1385",
     events:
-      "Union of Krewe: the unification of Poland and Lithuania as a result of the marriage of the Polish Queen Jadwiga and the Grand Duke of Lithuania Władysław Jagail (Jagiellon)",
+      "Union of Krewo: the unification of Poland and Lithuania as a result of the marriage of the Polish Queen Jadwiga and the Grand Duke of Lithuania Władysław Jagail (Jagiellon)",
     eventsMarkup: "",
     eventIndex: 302,
     startYear: 1385,

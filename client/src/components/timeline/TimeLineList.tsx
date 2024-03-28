@@ -37,7 +37,7 @@ export function TimeLineList() {
         return res;
       })
       .then(() => scrollIntoEvent());
-  }, []);
+  }, [settings.locale]);
 
   const handleEventClick = (record: HistoryEvent) => {
     setSelectedEventId(record.id);
