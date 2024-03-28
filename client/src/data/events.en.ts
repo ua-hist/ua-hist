@@ -1,7 +1,7 @@
 export const eventsEn = [
   {
     id: "f96fc5b4-1d29-469b-98f2-d3a231721870",
-    time: "1 млн р. до н. е.",
+    time: "1 million years BC",
     events: "Paleolithic. Royal site of primitive man in Transcarpathia",
     eventsMarkup: "",
     eventIndex: 0,
@@ -9,7 +9,7 @@ export const eventsEn = [
   },
   {
     id: "9d939325-a318-4195-8aab-062ace265b5a",
-    time: "300 тис.р.до н. е.",
+    time: "300 millennium BC",
     events:
       "Dating of human settlements on the Dnistro (Sokil), Dnipro (Kruhlyk), Siverskyi Donets' (Izium)",
     eventsMarkup: "",
@@ -18,7 +18,7 @@ export const eventsEn = [
   },
   {
     id: "6ef3297f-3a73-4d16-a088-22ea9dcfdc55",
-    time: "300—30 тис. р. до н. е.",
+    time: "300—30 millennium BC",
     events:
       "Middle Paleolithic (Mustier) on the territory of Ukraine: more than 80 sites",
     eventsMarkup: "",
@@ -27,7 +27,7 @@ export const eventsEn = [
   },
   {
     id: "574291f1-ee97-4db4-8ff2-2c5e10a23307",
-    time: "250—170 (100) тис.р. до .н. е.",
+    time: "250—170 (100) millennium BC",
     events:
       "Dnipro (maximum) glaciation: the ice shell along the Dnipro advanced to the rapids.",
     eventsMarkup: "",
@@ -36,7 +36,7 @@ export const eventsEn = [
   },
   {
     id: "7d0f0366-4918-4610-8bfe-97ef2faf2c83",
-    time: "75—10 тис. р. до н. е.",
+    time: "75—10 millennium BC",
     events: "The last glaciation in Europe: the glacier advanced to Polissia",
     eventsMarkup: "",
     eventIndex: 4,
@@ -44,7 +44,7 @@ export const eventsEn = [
   },
   {
     id: "6d4472ae-8bed-4e9b-a17d-071c1ac935b8",
-    time: "35—9 тис.р. до н. е.",
+    time: "35—9 millennium BC",
     events:
       "Upper Paleolithic on the territory of Ukraine; several separate archaeological cultures are known (Mezhirytska, Anetivska, Spitsynska, Molodovska, Brinzenska, Lipska, Mizynska). Migrations of primitive hunters from the west and south. The densest population is on the Dnistro, near the Dnipro rapids and in southern Crimea.",
     eventsMarkup: "",
@@ -53,7 +53,7 @@ export const eventsEn = [
   },
   {
     id: "216935f3-48f2-42e6-9937-2ed7ec304c18",
-    time: "9—6 тис. р. до н. е.",
+    time: "9—6 millennium BC",
     events:
       "Mesolithic in the territory of Ukraine. Kukretska, Kudlayivska, Grebenykivska, Donetsk, Rudoostrivska, Pisochnorivska and other archaeological cultures.",
     eventsMarkup: "",
@@ -62,7 +62,7 @@ export const eventsEn = [
   },
   {
     id: "b6598928-8d3a-42db-863a-484310697e0a",
-    time: "6—4 тис. до н. е.",
+    time: "6—4 millennium BC",
     events:
       "Neolithic in the territory of Ukraine. Bugo-Dnistro, Sursk culture, Dnipro-Donetsk, Azov-Dniprovsk, etc. cultures",
     eventsMarkup: "",
@@ -71,7 +71,7 @@ export const eventsEn = [
   },
   {
     id: "d26ca3f7-3589-4b6b-b3f3-cee7b141d891",
-    time: "4—3 тис. до н. е.",
+    time: "4—3 millennium BC",
     events:
       "Eneolithic in the territory of Ukraine. Trypilska, Serednyostohivska, etc. cultures The construction of the first cities by Trypilians, with a population of up to 46,000 inhabitants.",
     eventsMarkup: "",
@@ -80,7 +80,7 @@ export const eventsEn = [
   },
   {
     id: "5df9feef-9e7e-40b4-bd23-55b37d616f43",
-    time: "3—1 тис. до н. е.",
+    time: "3—1 millennium BC",
     events:
       "Bronze Age. Yamna culture, Catacomb culture, Kemi-obinsk, Skhidnotshinetsk, Komarivsk, Zrubna, Sabatinivsk, Bilohrudivsk, Chornolisk, etc. cultures",
     eventsMarkup: "",
@@ -89,7 +89,7 @@ export const eventsEn = [
   },
   {
     id: "d02f1fc9-df1f-4fe4-a044-81dee76232d4",
-    time: "1100—200 рр. до н. е.",
+    time: "1100—200 BC",
     events:
       "Cultures of the Iron Age on the territory of Ukraine: Zarubine culture, Kyzyl-Kobin culture, Lusatian culture, Scythian culture, Sarmatian culture, Yukhniv culture, etc. archaeological cultures of the Iron Age",
     eventsMarkup: "",
@@ -98,7 +98,7 @@ export const eventsEn = [
   },
   {
     id: "d8c766bd-ac7a-431b-9724-7a0378c0a387",
-    time: "1250—700 рр. до н. е.",
+    time: "1250—700 BC",
     events:
       "Cimmerians in the Northern Black Sea, Tauri in the Crimea. Founded around 1250 BC. e. at the mouth of the Ingulu city of the Cimmerians.\nThe city of the Cimmerian people",
     eventsMarkup: "",
@@ -107,7 +107,7 @@ export const eventsEn = [
   },
   {
     id: "73b9303b-f904-46fe-890c-dd4ba3ffb670",
-    time: "700—300 рр. до н. е.",
+    time: "700—300 BC",
     events:
       'Scythians in the Northern Black Sea. Probably their "capital" - Metropol - is now Kamianskoe Gorodishche near modern Energodar on the Dnipro. their huge hillforts in Poltava region (Bilske hillfort - Gelon), Podillia, Kyiv region are also known.',
     eventsMarkup: "",
@@ -116,7 +116,7 @@ export const eventsEn = [
   },
   {
     id: "8bc89273-7eb9-4579-a74f-272e2ba9c128",
-    time: "647 до н.е.",
+    time: "647 BC",
     events:
       "The establishment of the 1st Greek colony in the Northern Black Sea region - Borysthenis at the mouth of the Dnipro.",
     eventsMarkup: "",
@@ -125,7 +125,7 @@ export const eventsEn = [
   },
   {
     id: "e323dbd6-0e96-4f97-9433-8ee714b573b8",
-    time: "бл. 600 до н.е.",
+    time: "ca. 600 BC",
     events: "The Greeks founded Olbia and Panticapaeum",
     eventsMarkup: "",
     eventIndex: 14,
@@ -133,7 +133,7 @@ export const eventsEn = [
   },
   {
     id: "9f31626d-0d7e-4355-9870-088a8ecb1756",
-    time: "бл.550 до н.е.",
+    time: "ca.550 BC",
     events: "Founding of Theodosia and Cercinitis in Tauria",
     eventsMarkup: "",
     eventIndex: 15,
@@ -141,7 +141,7 @@ export const eventsEn = [
   },
   {
     id: "c4ea89fa-1005-4199-ac5d-3506449c5701",
-    time: "528 до н.е.",
+    time: "528 BC",
     events: "The founding of Chersonesus by the Heracleans",
     eventsMarkup: "",
     eventIndex: 16,
@@ -149,7 +149,7 @@ export const eventsEn = [
   },
   {
     id: "9873deff-fd37-4410-9955-d75a379fd6c9",
-    time: "513 до н.е.",
+    time: "513 BC",
     events:
       "The unsuccessful campaign of Darius I against the Scythians (the Scythians avoided the main battle, exhausting the Persians with small skirmishes and attacks).",
     eventsMarkup: "",
@@ -158,7 +158,7 @@ export const eventsEn = [
   },
   {
     id: "a31c71f1-25b4-40a9-a424-c83ecc3dfcb6",
-    time: "502 до н.е.",
+    time: "502 BC",
     events:
       "Founding of Tyra (Ophiussa) - now Bilhorod-Dnistrovskyi. According to UNESCO, Belgorod-Dnistrovsky is among the ten oldest cities of continuous existence on Earth",
     eventsMarkup: "",
@@ -167,7 +167,7 @@ export const eventsEn = [
   },
   {
     id: "7659a129-bde6-4cf4-9c1d-d5674c940fd4",
-    time: "480 до н.е.",
+    time: "480 BC",
     events:
       "The unification of the Greek settlements on the Cimmerian Bosporus into the Bosporan kingdom under the rule of Panticapaeum. Archeanactus founds a royal dynasty.",
     eventsMarkup: "",
@@ -176,7 +176,7 @@ export const eventsEn = [
   },
   {
     id: "e885d170-a84e-4804-86aa-82a9cd0dbdc8",
-    time: "438 до н.е.",
+    time: "438 BC",
     events:
       "Spartacus comes to power in the Bosporus kingdom and founds a new dynasty.",
     eventsMarkup: "",
@@ -185,7 +185,7 @@ export const eventsEn = [
   },
   {
     id: "a813cab7-6d8c-4292-b369-ee5d1b692f1d",
-    time: "434 до н.е.",
+    time: "434 BC",
     events: "Treaty of friendship between Athens and the Bosporan kingdom",
     eventsMarkup: "",
     eventIndex: 21,
@@ -193,7 +193,7 @@ export const eventsEn = [
   },
   {
     id: "4af65e59-f07a-4bbb-8554-0e5698d1b37a",
-    time: "421 до н.е.",
+    time: "421 BC",
     events:
       "Another possible date for the founding of Chersonesus of Tauria is as a colony of Heraclea.",
     eventsMarkup: "",
@@ -202,7 +202,7 @@ export const eventsEn = [
   },
   {
     id: "5f6d5e7e-17ab-4e4a-bffb-0908d2caa7ac",
-    time: "бл. 385 до н.е.",
+    time: "ca. 385 BC",
     events:
       "Theodosia became part of the Bosporus kingdom after its siege by King Leukon I. The Kerch Peninsula also falls under the authority of the kingdom.",
     eventsMarkup: "",
@@ -211,7 +211,7 @@ export const eventsEn = [
   },
   {
     id: "4dc4931a-ff95-4380-b385-a2907517b9c2",
-    time: "331 до н.е.",
+    time: "331 BC",
     events:
       "Zopyrion, the general of Alexander the Great, marched with his army across the Danube in order to conquer the peoples in the Northern Black Sea region. Probably tried to capture Olbia and surrounded her. He was defeated by Scythians and Olviopolitans and died.",
     eventsMarkup: "",
@@ -220,7 +220,7 @@ export const eventsEn = [
   },
   {
     id: "563dcb3d-3e75-4ca4-8350-40de11566927",
-    time: "сер. ІІІ ст. до н. е.",
+    time: "mid 3rd century BC",
     events:
       "The Sarmatians gradually push the Scythians out of the Black Sea steppes to Tauria. Scythian settlements also remained on the Lower Dnipro.",
     eventsMarkup: "",
@@ -229,7 +229,7 @@ export const eventsEn = [
   },
   {
     id: "d6f5a8e4-79b5-4703-9bbf-9565ba2cea2e",
-    time: "III ст. до н. е. — І ст. н. е.",
+    time: "3rd century BC — 1st century AD",
     events: "Zarubinets culture in the Middle Dnipro region",
     eventsMarkup: "",
     eventIndex: 26,
@@ -237,7 +237,7 @@ export const eventsEn = [
   },
   {
     id: "fa724b3b-6913-4ddf-9084-e4621cbefa25",
-    time: "291 до н.е.",
+    time: "291 BC",
     events: "The Getae defeated Lysimachus",
     eventsMarkup: "",
     eventIndex: 27,
@@ -245,7 +245,7 @@ export const eventsEn = [
   },
   {
     id: "9b2e21a1-db5f-4660-92c5-5f6bbab3b0af",
-    time: "бл. 284 до н.е.",
+    time: "ca. 284 BC",
     events: "Celts in Western Ukraine and Bessarabia.",
     eventsMarkup: "",
     eventIndex: 28,
@@ -253,7 +253,7 @@ export const eventsEn = [
   },
   {
     id: "1bffb8f7-d4d6-49cf-a3a7-a808f8d30fa0",
-    time: "108—107 до н. е.",
+    time: "108—107 BC",
     events:
       "The king of the Bosporus, Perisades V, bequeaths his kingdom to Pontus, which causes a revolt of the Scythians led by Savmak. Suppressed with the help of the troops of Pontus King Mithridates VI Eupator.",
     eventsMarkup: "",
@@ -262,7 +262,7 @@ export const eventsEn = [
   },
   {
     id: "979d40a7-d011-447f-894e-1c04c18b1729",
-    time: "106 до н. е.",
+    time: "106 BC",
     events: "Chersonesus was for some time attached to the Bosporus kingdom",
     eventsMarkup: "",
     eventIndex: 30,
@@ -270,7 +270,7 @@ export const eventsEn = [
   },
   {
     id: "6e305633-8f6c-4bee-890e-53ba1e4614a6",
-    time: "63 до н. е.",
+    time: "63 BC",
     events:
       "The death of the king of Pontus Mithridates VI Eupator in Panticapaeum as a result of a rebellion against him by his own son Pharnak.",
     eventsMarkup: "",
@@ -279,7 +279,7 @@ export const eventsEn = [
   },
   {
     id: "84449440-5212-4b32-a523-fbc53232a707",
-    time: "48—20 до н. е.",
+    time: "48—20 BC",
     events: "Asandrus reigns in the Bosporus.",
     eventsMarkup: "",
     eventIndex: 32,
@@ -287,7 +287,7 @@ export const eventsEn = [
   },
   {
     id: "946a28c5-14cc-43f8-aa25-587f308131a6",
-    time: "47 до н. е.",
+    time: "47 BC",
     events:
       'August 2 – Julius Caesar defeats Pharnacus II, king of the Bosporus, at the Battle of Zela in Asia Minor. ("Came saw conquered")',
     eventsMarkup: "",
@@ -313,7 +313,7 @@ export const eventsEn = [
   },
   {
     id: "ff2f160a-cf6f-4e7c-9660-ff2786cfb70d",
-    time: "бл.69 — 244",
+    time: "ca.69 — 244",
     events:
       "Roman garrison in Charax fortress (near modern Yalta). Roman garrisons of the 1st - 3rd centuries are also known. in Olbia, Tyra, Chersonesus, modern Balaklava.",
     eventsMarkup: "",
@@ -330,7 +330,7 @@ export const eventsEn = [
   },
   {
     id: "44ef6d89-4bb5-4c43-bc06-022c661ab5b1",
-    time: "І — II ст.",
+    time: "1st — 2nd century AD",
     events:
       'Construction of defensive ramparts ("Trojan ramparts") by the Romans in southern Bessarabia',
     eventsMarkup: "",
@@ -339,7 +339,7 @@ export const eventsEn = [
   },
   {
     id: "b5ec7d02-7ca5-423b-b054-b480f8c1138f",
-    time: "поч. ІІІ ст.",
+    time: "early 2nd century AD",
     events:
       "The territory of Right Bank Ukraine is occupied by the Germanic tribes of the Goths, who advanced from the northwest (Velbar culture). Expulsion of the Sarmatians. Goth state of Oium; the creation of Snake shafts. The Chernyakhiv culture is probably a multi-ethnic tribal union in Right Bank Ukraine, Poltava Oblast, Moldavia, and eastern Romania led by the Goths.",
     eventsMarkup: "",
@@ -408,7 +408,7 @@ export const eventsEn = [
   },
   {
     id: "86d72b34-05fa-45b5-ad9b-7ad5278bf265",
-    time: "бл.270",
+    time: "ca.270",
     events: "Goths destroy Black Sea Greek cities, including Olbia.",
     eventsMarkup: "",
     eventIndex: 47,
@@ -474,7 +474,7 @@ export const eventsEn = [
   },
   {
     id: "c4eed2d6-20d9-4f2a-b6be-ee3fc3e11cba",
-    time: "бл.350—376",
+    time: "ca.350—376",
     events: "The reign of the Gothic leader Ermanaric",
     eventsMarkup: "",
     eventIndex: 55,
@@ -482,7 +482,7 @@ export const eventsEn = [
   },
   {
     id: "bba7a367-bb6c-4e7f-b658-61918dde1e53",
-    time: "бл.360",
+    time: "ca.360",
     events: "Alans are conquered by the Huns",
     eventsMarkup: "",
     eventIndex: 56,
@@ -490,7 +490,7 @@ export const eventsEn = [
   },
   {
     id: "1a57ca6d-bb4f-488c-9412-f4f47cf59b25",
-    time: "бл.362",
+    time: "ca.362",
     events: "Bosporus was conquered by Ermanaric",
     eventsMarkup: "",
     eventIndex: 57,
@@ -498,7 +498,7 @@ export const eventsEn = [
   },
   {
     id: "efcdec27-f826-4f0e-8f70-7738de6e56dc",
-    time: "бл.365",
+    time: "ca.365",
     events:
       "Ermanaric's war against the Slavs, as a result of which some of them flee to the north (eventually to Lake Ilmen)",
     eventsMarkup: "",
@@ -507,7 +507,7 @@ export const eventsEn = [
   },
   {
     id: "c28f73e5-76ab-4ba4-94e9-1e8c155d83d8",
-    time: "бл. 373—376",
+    time: "ca. 373—376",
     events: "Alano-Gothic War.",
     eventsMarkup: "",
     eventIndex: 59,
@@ -515,7 +515,7 @@ export const eventsEn = [
   },
   {
     id: "d7a3553a-e7a7-4310-a740-f8605b344c61",
-    time: "бл.374",
+    time: "ca.374",
     events:
       "The war between the Goths and the Antes: the death of the Antes chief Boza.",
     eventsMarkup: "",
@@ -532,7 +532,7 @@ export const eventsEn = [
   },
   {
     id: "27068ef2-359b-4c0d-9bec-480ffcd9de1e",
-    time: "бл.375/376 (370?)",
+    time: "ca.375/376 (370?)",
     events:
       "Ukraine. The Huns\nHun invasion. The defeat of the Goths and their flight to the west. With the consent of the Roman administration, the Visigoths (Visigoths) settle on the Danube (in Thrace) with the rights of confederates. In the future, anti-Roman rebellions rise, get out of control of the Empire and start military raids on its lands, which eventually leads to the collapse of Rome in 476 and the creation of 2 Gothic and other barbarian kingdoms in Western Europe.",
     eventsMarkup: "",
@@ -628,7 +628,7 @@ export const eventsEn = [
   },
   {
     id: "2a1be43b-0b79-43b2-a295-fce75edda16d",
-    time: "бл.558",
+    time: "ca.558",
     events: "Ukraine. Avars\nAvar invasion",
     eventsMarkup: "",
     eventIndex: 73,
@@ -722,7 +722,7 @@ export const eventsEn = [
   },
   {
     id: "de5dd45f-34c5-4d2e-b7b3-7f3cd163550f",
-    time: "бл. 625",
+    time: "ca. 625",
     events: "Formation of the Khazar Khaganate",
     eventsMarkup: "",
     eventIndex: 84,
@@ -747,7 +747,7 @@ export const eventsEn = [
   },
   {
     id: "02b78fb7-883e-46d8-9d3c-0d71b38f1ad8",
-    time: "бл.650",
+    time: "ca.650",
     events:
       "Khan Asparukh's Bulgarian horde retreated from the Azov region to Bujak. Hungarians from the North Caucasus migrated to the Don and Siverskyi Donets.",
     eventsMarkup: "",
@@ -791,7 +791,7 @@ export const eventsEn = [
   },
   {
     id: "ea8dedc5-bd41-4177-873f-b0afc0fcd2dd",
-    time: "бл.700",
+    time: "ca.700",
     events: "The Ugrians are entrenched on the Siverskyi Donka.",
     eventsMarkup: "",
     eventIndex: 92,
@@ -823,7 +823,7 @@ export const eventsEn = [
   },
   {
     id: "c363bbaf-142b-4625-9613-ae318ade4f3a",
-    time: "бл.787—790",
+    time: "ca.787—790",
     events:
       "Capture of the region and the city of Doros in Tauria by the Khazars. The anti-Khozar uprising in Crimean Gothia led by the bishop from Parthenit.",
     eventsMarkup: "",
@@ -832,7 +832,7 @@ export const eventsEn = [
   },
   {
     id: "5d73ce63-92e8-4645-bea0-731b2b08b76e",
-    time: "бл. 787—790",
+    time: "ca. 787—790",
     events:
       'The march of Bravlin\'s wife from "Novagorod" to Sudak in Tauria (This fact is known only from one historical source).',
     eventsMarkup: "",
@@ -908,7 +908,7 @@ export const eventsEn = [
   },
   {
     id: "e3b05286-ade8-4bb5-87cf-f90eb94abc8d",
-    time: "бл. 862",
+    time: "ca. 862",
     events:
       "Vocation of the Varangians to Rus'. The beginning of Rurik's reign (862-879) in Novgorod",
     eventsMarkup: "",
@@ -1743,7 +1743,7 @@ export const eventsEn = [
   },
   {
     id: "3e13cd45-a448-44e3-92e9-4abe5b347f5d",
-    time: "до 1125",
+    time: "before 1125",
     events: '"Teaching children" by Volodymyr Monomakh.',
     eventsMarkup: "",
     eventIndex: 203,
@@ -2625,7 +2625,7 @@ export const eventsEn = [
   },
   {
     id: "e0d471a9-64d5-4454-a669-8dcf79cf69a5",
-    time: "1393 — 1394",
+    time: "1393 — 1394",
     events: "Liquidation of the Rus' principalities by the Lithuanians",
     eventsMarkup: "",
     eventIndex: 305,
@@ -2925,7 +2925,7 @@ export const eventsEn = [
   },
   {
     id: "96bcc9fe-a997-4151-a5a7-81e37f46fd51",
-    time: "1490 — 1492",
+    time: "1490 — 1492",
     events: "In Galicia, there is an uprising led by Mucha and Borula",
     eventsMarkup: "",
     eventIndex: 339,
