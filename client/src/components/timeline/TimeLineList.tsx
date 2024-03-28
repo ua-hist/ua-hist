@@ -14,6 +14,7 @@ import { getEventChunks } from "../../utils/get-event-chunks";
 import { useDateContext } from "../date/DateContext";
 import { useScrollIntoEvent } from "./useScrollIntoEvent";
 import { TimeLineEvent } from "./TimeLineEvent";
+import { useSettingsContext } from "../settings/SettingsContext";
 
 export function TimeLineList() {
   const [events, setEvents] = useState<HistoryEvent[]>([]);
@@ -27,8 +28,10 @@ export function TimeLineList() {
 
   const scrollIntoEvent = useScrollIntoEvent(listRef, selectedEventId);
 
+  const { settings } = useSettingsContext();
+
   useEffect(() => {
-    getAllEvents()
+    getAllEvents(settings.locale)
       .then((res) => {
         setEvents(res);
         return res;

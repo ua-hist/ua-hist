@@ -5,6 +5,7 @@ export type Settings = {
   mapMode: MapDisplayMode;
   tileLayerId: number;
   mapStyleId: string;
+  locale: string;
 };
 
 export type SettingsContextType = {

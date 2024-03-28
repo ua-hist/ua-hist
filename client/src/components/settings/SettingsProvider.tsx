@@ -8,6 +8,7 @@ export function SettingsProvider(props: PropsWithChildren) {
       mapMode: "ukraine",
       tileLayerId: 0,
       mapStyleId: "Archaic",
+      locale: "en",
     };
     const savedValue = StorageHelper.get<Settings>("settings", defaultValues);
 
