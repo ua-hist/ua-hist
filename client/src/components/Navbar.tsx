@@ -4,6 +4,14 @@ import { SettingsControls } from "./settings/SettingsControls";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Button } from "./ui/button";
 import { NavLink } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export function SettingsPopover() {
   return (
@@ -11,8 +19,7 @@ export function SettingsPopover() {
       <PopoverTrigger>
         <Button variant="outline" className="ml-auto" asChild>
           <span>
-            Settings
-            <GearIcon className="ml-2 h-4 w-4" />
+            <GearIcon className="h-4 w-4" />
           </span>
         </Button>
       </PopoverTrigger>
@@ -39,11 +46,39 @@ export function Navbar() {
           </div>
         </div>
 
-        <div className="flex flex-row justify-center items-center">
-          <NavLink to={"/saved"}>Saved events</NavLink>
-        </div>
-        <div>
-          <SettingsPopover />
+        <div className="flex flex-row gap-4">
+          <div className="flex flex-row justify-center items-center">
+            <NavLink to={"/saved"}>
+              <Button variant="outline" className="ml-auto" asChild>
+                <span>Saved Events</span>
+              </Button>
+            </NavLink>
+          </div>
+          <div>
+            <Dialog>
+              <DialogTrigger>
+                <Button variant="outline" className="ml-auto" asChild>
+                  <span>
+                    <span>SignUp</span>
+                    <span className="text-gray-400">/</span>
+                    <span>Login</span>
+                  </span>
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Are you absolutely sure?</DialogTitle>
+                  <DialogDescription>
+                    This action cannot be undone. This will permanently delete
+                    your account and remove your data from our servers.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          </div>
+          <div>
+            <SettingsPopover />
+          </div>
         </div>
       </div>
     </div>
