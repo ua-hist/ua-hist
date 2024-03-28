@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   Select,
   SelectContent,
@@ -11,18 +12,20 @@ const mapModes = ["europe", "ukraine"] as const;
 
 export type MapDisplayMode = (typeof mapModes)[number];
 
-const mapModesDict: Record<MapDisplayMode, string> = {
-  europe: "Europe",
-  ukraine: "Ukraine and neigbors",
-};
+
+// const mapModesDict: Record<MapDisplayMode, string> = {
+//   europe: "Europe",
+//   ukraine: "Ukraine and neigbors",
+// };
 
 export function MapModeControl() {
+  const { t } = useTranslation();
   const { settings, setSetting } = useSettingsContext();
 
   return (
     <div className="flex flex-row justify-between align-center">
       <div className="flex flex-row justify-center items-center">
-        <div className="font-medium">Map scope</div>
+        <div className="font-medium">{t('mapScope')}</div> {/* Translate the map scope */}
       </div>
 
       <Select
@@ -35,7 +38,7 @@ export function MapModeControl() {
         <SelectContent>
           {mapModes.map((mode) => (
             <SelectItem key={mode} value={mode}>
-              {mapModesDict[mode]}
+              {t(`mapModesDict.${mode}`)}
             </SelectItem>
           ))}
         </SelectContent>

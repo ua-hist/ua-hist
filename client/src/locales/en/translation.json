@@ -1,0 +1,39 @@
+{
+    "mapScope": "Map Scope",
+    "mapModesDict": {
+      "europe": "Europe",
+      "ukraine": "Ukraine and Neighbors"
+    },
+    "mapStyle": "Map Style",
+    "mapStyles": {
+        "Archaic": "Archaic",
+        "Modern": "Modern"
+    },
+
+    "mapBackground": "Map Background",
+    "mapBackgrounds": {
+        "Detailed": "Detailed",
+        "Blank": "Blank",
+        "Grayscale": "Grayscale"
+    },
+
+    "settings": "Settings",
+
+    "saved": "Saved events",
+
+    "noEvents": "No saved events yet",
+
+    "title": "Ukraine History Atlas",
+
+    "languageSwitcher": {
+        "english": {
+          "title": "English",
+          "flagAlt": "UK Flag"
+        },
+        "ukrainian": {
+          "title": "Ukrainian",
+          "flagAlt": "Ukraine Flag"
+        }
+      }
+    
+  }
