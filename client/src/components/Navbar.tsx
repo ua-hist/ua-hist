@@ -28,7 +28,7 @@ export function SettingsPopover() {
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-96 h-48" style={{ zIndex: 20 }}>
+      <PopoverContent className="w-96 h-56" style={{ zIndex: 20 }}>
         <SettingsControls />
       </PopoverContent>
     </Popover>
@@ -86,10 +86,6 @@ export function Navbar() {
           <div>
             <SettingsPopover />
           </div>
-        </div>
-
-        <div className="flex flex-row justify-center items-center">
-          <LanguageSwitcher /> {/* Add LanguageSwitcher component here */}
         </div>
       </div>
     </div>

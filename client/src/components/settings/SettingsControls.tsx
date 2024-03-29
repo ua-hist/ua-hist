@@ -1,3 +1,4 @@
+import { LangControl } from "./LangControl";
 import { MapModeControl } from "./MapModeControl";
 import { MapStyleControl } from "./MapStyleControl";
 import { TileLayerControl } from "./TileLayerControl";
@@ -9,6 +10,7 @@ export function SettingsControls() {
         <MapModeControl />
         <MapStyleControl />
         <TileLayerControl />
+        <LangControl />
       </div>
     </div>
   );
