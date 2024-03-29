@@ -22,7 +22,7 @@ export function TimeLineList() {
     StorageHelper.get("selectedEventId", defaultEvent.id),
   );
 
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { setDate } = useDateContext();
 
@@ -70,7 +70,8 @@ export function TimeLineList() {
               className={`accord_item_${i}`}
             >
               <AccordionTrigger className="text-md">
-                {chunk.title}
+                {t("dateRange.from")} {chunk.title[0]} {t("dateRange.to")}{" "}
+                {chunk.title[1]}
               </AccordionTrigger>
               {chunk.events.map((event) => (
                 <AccordionContent key={event.id}>

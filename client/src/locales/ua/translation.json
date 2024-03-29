@@ -1,39 +1,43 @@
 {
-    "mapScope": "Фокус карти",
-    "mapModesDict": {
-      "europe": "Європа",
-      "ukraine": "Україна та сусіди"
+  "mapScope": "Фокус карти",
+  "mapModesDict": {
+    "europe": "Європа",
+    "ukraine": "Україна та сусіди"
+  },
+
+  "mapStyle": "Тип карти",
+  "mapStyles": {
+    "Archaic": "Старий",
+    "Modern": "Сучасний"
+  },
+
+  "mapBackground": "Фон карти",
+  "mapBackgrounds": {
+    "Detailed": "Детальна",
+    "Blank": "Порожня",
+    "Grayscale": "Відтінки сірого"
+  },
+
+  "settings": "Налаштування",
+
+  "saved": "Збережені події",
+
+  "noEvents": "Відсутні події",
+
+  "title": "Атлас Історії України",
+
+  "languageSwitcher": {
+    "english": {
+      "title": "Англійська",
+      "flagAlt": "Прапор Великої Британії"
     },
-
-    "mapStyle": "Тип карти",
-    "mapStyles": {
-        "Archaic": "Старий",
-        "Modern": "Сучасний"
-    },
-
-    "mapBackground": "Фон карти",
-    "mapBackgrounds": {
-        "Detailed": "Детальна",
-        "Blank": "Порожня",
-        "Grayscale": "Відтінки сірого"
-    },
-
-    "settings": "Налаштування",
-
-    "saved": "Збережені події",
-
-    "noEvents": "Відсутні події",
-      
-    "title": "Атлас Історії України",
-    
-    "languageSwitcher": {
-        "english": {
-          "title": "Англійська",
-          "flagAlt": "Прапор Великої Британії"
-        },
-        "ukrainian": {
-          "title": "Українська",
-          "flagAlt": "Прапор України"
-        }
-      }
+    "ukrainian": {
+      "title": "Українська",
+      "flagAlt": "Прапор України"
+    }
+  },
+  "dateRange": {
+    "from": "Від",
+    "to": "до"
+  }
 }
