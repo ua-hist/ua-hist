@@ -66,9 +66,7 @@ export function Navbar() {
               <DialogTrigger>
                 <Button variant="outline" className="ml-auto" asChild>
                   <span>
-                    <span>SignUp</span>
-                    <span className="text-gray-400">/</span>
-                    <span>Login</span>
+                    <span>{t(`auth.login`)}</span>
                   </span>
                 </Button>
               </DialogTrigger>

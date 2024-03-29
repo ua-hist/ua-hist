@@ -38,5 +38,8 @@
   "dateRange": {
     "from": "From",
     "to": "to"
+  },
+  "auth": {
+    "login": "Log in"
   }
 }
