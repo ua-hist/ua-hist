@@ -9,13 +9,21 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
   Card,
   CardHeader,
-  CardTitle,
   CardDescription,
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { SavedEventsPage } from "./saved-events/SavedEventsPage";
 
 export function SettingsPopover() {
   return (
@@ -51,13 +59,18 @@ export function Navbar() {
         </div>
 
         <div className="flex flex-row gap-4">
-          <div className="flex flex-row justify-center items-center">
-            <NavLink to={"/saved"}>
-              <Button variant="outline" className="ml-auto" asChild>
-                <span>Saved Events</span>
-              </Button>
-            </NavLink>
-          </div>
+          <Sheet>
+            <SheetTrigger
+              onClick={() => {
+                setTimeout(() => (document.body.style.pointerEvents = ""), 0);
+              }}
+            >
+              Saved Events
+            </SheetTrigger>
+            <SheetContent side="left">
+              <SavedEventsPage />
+            </SheetContent>
+          </Sheet>
           <div>
             <Dialog>
               <DialogTrigger>
@@ -85,7 +98,7 @@ export function Navbar() {
 
 function SignUpLoginDialog() {
   return (
-    <Tabs defaultValue="account">
+    <Tabs defaultValue="signup">
       <TabsList className="grid w-full grid-cols-2">
         <TabsTrigger value="signup">SignUp</TabsTrigger>
         <TabsTrigger value="login">Login</TabsTrigger>
