@@ -47,6 +47,10 @@
     "make_changes": "Внесіть зміни в обліковий запис тут",
     "name": "Ім'я",
     "username": "Нікнейм",
-    "save_changes": "Зберегти"
+    "save_changes": "Зберегти",
+    "change_password": "Змініть пароль тут",
+    "current_password": "Поточний пароль",
+    "new_password": "Новий пароль",
+    "save_password": "Зберегти пароль"
   }
 }

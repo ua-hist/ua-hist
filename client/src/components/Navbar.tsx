@@ -18,19 +18,10 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SavedEventsPage } from "./saved-events/SavedEventsPage";
 
 export function SettingsPopover() {
-  const { t } = useTranslation();
-
   return (
     <Popover>
       <PopoverTrigger>
@@ -130,25 +121,24 @@ function SignUpLoginDialog() {
           </CardFooter>
         </Card>
       </TabsContent>
+
       <TabsContent value="login">
         <Card>
           <CardHeader>
-            <CardDescription>
-              Change your password here. After saving, you'll be logged out.
-            </CardDescription>
+            <CardDescription>{t(`auth.change_password`)}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
+              <Label htmlFor="current">{t(`auth.current_password`)}</Label>
               <Input id="current" type="password" />
             </div>
             <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
+              <Label htmlFor="new">{t(`auth.new_password`)}</Label>
               <Input id="new" type="password" />
             </div>
           </CardContent>
           <CardFooter>
-            <Button>Save password</Button>
+            <Button>{t(`auth.save_password`)}</Button>
           </CardFooter>
         </Card>
       </TabsContent>

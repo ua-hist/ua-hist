@@ -46,6 +46,10 @@
     "make_changes": "Make changes to your account here. Click save when you're done.",
     "name": "Name",
     "username": "Username",
-    "save_changes": "Save changes"
+    "save_changes": "Save changes",
+    "change_password": "Change your password here. After saving, you'll be logged out.",
+    "current_password": "Current password",
+    "new_password": "New password",
+    "save_password": "Save password"
   }
 }
