@@ -3,10 +3,11 @@ import { MapSection } from "../components/maps/MapSection";
 import { Navbar } from "./Navbar";
 import { TimeLineList } from "./timeline/TimeLineList";
 import { Slider } from "./ui/slider";
-import { useState } from "react";
+import { useDateContext } from "./date/DateContext";
+import { numToCenturyStart } from "../utils/century";
 
 export function Main() {
-  const [century, setCentury] = useState(2);
+  const { setDate } = useDateContext();
 
   return (
     <div className="!max-h-screen h-screen relative min-h-screen overflow-hidden">
@@ -16,7 +17,17 @@ export function Main() {
           <MapSection />
           <div className="absolute -bottom-4 hover:bottom-0 w-full transition-all py-4">
             <div className="container">
-              <Slider defaultValue={[2]} max={10} min={-1} step={1} />
+              <Slider
+                defaultValue={[2]}
+                max={21}
+                min={-4}
+                step={1}
+                onValueChange={([centuryIndex]) => {
+                  const year = numToCenturyStart(centuryIndex);
+                  // console.log(year);
+                  setDate(year);
+                }}
+              />
             </div>
           </div>
         </div>

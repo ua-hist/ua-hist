@@ -8,7 +8,7 @@ function Numbers({ start, end }: { start: number; end: number }) {
   return (
     <div className="w-full text-gray-400 text-md flex font-bold flex-row justify-between px-1">
       {Array.from({ length: end - start + 1 }, (_, i) => start + i).map((i) => {
-        console.log(Math.abs(i));
+        // console.log(Math.abs(i));
         return (
           <div key={i} className="text-center">
             {i < 1 ? "-" + romanize(Math.abs(i - 1)) : romanize(i)}
