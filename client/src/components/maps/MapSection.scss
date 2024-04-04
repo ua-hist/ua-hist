@@ -1,14 +1,16 @@
 .territory_tooltip {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.9rem;
   background-color: transparent;
   box-shadow: none;
   border: none;
-  $halo: white;
-  //   text-shadow:
-  //     -1px -1px 0 $halo,
-  //     1px -1px 0 $halo,
-  //     -1px 1px 0 $halo,
-  //     1px 1px 0 $halo;
+  $shadow_color: white;
+  $shadow_blur: 3px;
+  text-shadow:
+    -1px -1px $shadow_blur $shadow_color,
+    1px -1px $shadow_blur $shadow_color,
+    -1px 1px $shadow_blur $shadow_color,
+    1px 1px $shadow_blur $shadow_color;
 
   &::after,
   &::before {

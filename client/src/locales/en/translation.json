@@ -1,0 +1,55 @@
+{
+  "mapScope": "Map Scope",
+  "mapModesDict": {
+    "europe": "Europe",
+    "ukraine": "Ukraine and Neighbors"
+  },
+  "mapStyle": "Map Style",
+  "mapStyles": {
+    "Archaic": "Archaic",
+    "Modern": "Modern"
+  },
+
+  "mapBackground": "Map Background",
+  "mapBackgrounds": {
+    "Detailed": "Detailed",
+    "Blank": "Blank",
+    "Grayscale": "Grayscale"
+  },
+
+  "settings": "Settings",
+
+  "saved": "Saved events",
+
+  "noEvents": "No saved events yet",
+
+  "title": "Ukraine History Atlas",
+
+  "languageSwitcher": {
+    "english": {
+      "title": "English",
+      "flagAlt": "UK Flag"
+    },
+    "ukrainian": {
+      "title": "Ukrainian",
+      "flagAlt": "Ukraine Flag"
+    }
+  },
+  "dateRange": {
+    "from": "From",
+    "to": "to"
+  },
+  "auth": {
+    "log_in": "Log in",
+    "login": "Login",
+    "sign_up": "SignUp",
+    "make_changes": "Make changes to your account here. Click save when you're done.",
+    "name": "Name",
+    "username": "Username",
+    "save_changes": "Save changes",
+    "change_password": "Change your password here. After saving, you'll be logged out.",
+    "current_password": "Current password",
+    "new_password": "New password",
+    "save_password": "Save password"
+  }
+}

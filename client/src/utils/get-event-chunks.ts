@@ -13,12 +13,15 @@ function getChunkTitle(chunk: HistoryEvent[]) {
   const first = chunk[0];
   const last = chunk[chunk.length - 1];
 
-  return `Від ${first.startYear && first.startYear < 0 ? first.time : first.startYear} до ${last.time}`;
+  return [
+    `${first.startYear && first.startYear < 0 ? first.time : first.startYear}`,
+    `${last.time}`,
+  ] as [string, string];
 }
 
 export function getEventChunks(
   events: HistoryEvent[],
-): { title: string; events: HistoryEvent[] }[] {
+): { title: [string, string]; events: HistoryEvent[] }[] {
   return sliceIntoChunks(events, 20).map((chunk) => ({
     title: getChunkTitle(chunk),
     events: chunk,

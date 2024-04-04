@@ -6,8 +6,11 @@ import { HistoryEvent } from "../../api/get-events";
 import { NavLink } from "react-router-dom";
 import { SheetClose, SheetFooter, SheetHeader, SheetTitle } from "../ui/sheet";
 import { Button } from "../ui/button";
+import { useTranslation } from "react-i18next";
 
 export function NavbarFull() {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="h-16 px-5 py-3 shadow-[#b6b6b6] shadow-md"></div>
@@ -19,7 +22,7 @@ export function NavbarFull() {
             </div>
             <div className="flex flex-row justify-center items-center">
               <div className="text-lg font-medium text-slate-800">
-                <NavLink to={"/"}>Ukraine History Atlas</NavLink>
+                <NavLink to={"/"}>{t(`title`)}</NavLink>
               </div>
             </div>
           </div>
@@ -30,6 +33,7 @@ export function NavbarFull() {
 }
 
 export function SavedEventsPage() {
+  const { t } = useTranslation();
   const [savedEvents, setSavedEvents] = useState<string[]>(
     StorageHelper.get("savedEvents", []),
   );
@@ -62,7 +66,7 @@ export function SavedEventsPage() {
           </div>
         ) : (
           <div className="flex flex-col w-[60%] m-auto justify-center align-center">
-            <div>No saved events yet</div>
+            <div>{t(`noEvents`)}</div>
           </div>
         )}
       </div>

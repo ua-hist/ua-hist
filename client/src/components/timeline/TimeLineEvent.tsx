@@ -40,12 +40,16 @@ export function TimeLineEvent({
           <div className="event_time">
             <div>{event.time}</div>
           </div>
-          <div
-            className="event_desc"
-            dangerouslySetInnerHTML={{
-              __html: event.eventsMarkup,
-            }}
-          ></div>
+          {event.eventsMarkup ? (
+            <div
+              className="event_desc"
+              dangerouslySetInnerHTML={{
+                __html: event.eventsMarkup,
+              }}
+            ></div>
+          ) : (
+            <div className="event_desc">{event.events}</div>
+          )}
         </div>
       </ContextMenuTrigger>
       <ContextMenuContent>

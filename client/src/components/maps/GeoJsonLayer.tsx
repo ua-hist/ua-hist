@@ -2,9 +2,10 @@ import { Feature, MultiPolygon } from "geojson";
 import L from "leaflet";
 import { useEffect, useRef } from "react";
 import { useMap } from "react-leaflet";
-import { getColor } from "../../data/colors";
 import { useSettingsContext } from "../settings/SettingsContext";
-import { mapStyles } from "../settings/map-styles";
+import { MapStyleFn, defaultStyle, mapStyles } from "../settings/map-styles";
+import { useTranslation } from "react-i18next";
+import { namesUa } from "../../data/names.ua";
 
 export const GeoJsonLayer = ({
   features,
@@ -13,8 +14,31 @@ export const GeoJsonLayer = ({
 }) => {
   const map = useMap();
   const { settings } = useSettingsContext();
+  const { i18n } = useTranslation();
 
-  const layerRef = useRef<L.Layer>();
+  const layerRef = useRef<L.FeatureGroup>();
+
+  function renderFeature(f: Feature<MultiPolygon>, mapStyleFn?: MapStyleFn) {
+    return L.geoJSON(f, {
+      style: mapStyleFn?.(f) || defaultStyle(f),
+      onEachFeature: function (feature, layer) {
+        const name = feature.properties["NAME"];
+
+        if (!name) {
+          return;
+        }
+
+        const translatedName =
+          i18n.language === "ua" ? namesUa[name] || "" : name;
+
+        layer.bindTooltip(translatedName, {
+          permanent: true,
+          direction: "center",
+          className: "territory_tooltip",
+        });
+      },
+    });
+  }
 
   useEffect(() => {
     const mapStyleFn = mapStyles.find(
@@ -29,34 +53,10 @@ export const GeoJsonLayer = ({
     layerRef.current = group;
 
     features.forEach((f) => {
-      const color = getColor(f.properties!["NAME"]) || "grey";
-
-      group.addLayer(
-        L.geoJSON(f, {
-          style: mapStyleFn?.(f) || {
-            fillColor: color,
-            fillOpacity: 0.3,
-            color: color,
-            weight: 3,
-          },
-          onEachFeature: function (feature, layer) {
-            const name = feature.properties["NAME"];
-
-            if (!name) {
-              return;
-            }
-
-            layer.bindTooltip(name, {
-              permanent: true,
-              direction: "center",
-              className: "territory_tooltip",
-            });
-          },
-        }),
-      );
+      group.addLayer(renderFeature(f, mapStyleFn));
       map.addLayer(group);
     });
-  }, [features, map, settings.mapStyleId]);
+  }, [features, map, settings.mapStyleId, i18n.language]);
 
   return <></>;
 };
