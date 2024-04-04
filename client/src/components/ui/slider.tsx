@@ -5,16 +5,20 @@ import { romanize } from "romans";
 import { cn } from "@/lib/utils";
 
 function Numbers({ start, end }: { start: number; end: number }) {
+  const numbers = Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  const romanNumbers = numbers.map((i) =>
+    i < 1 ? `-${romanize(Math.abs(i - 1))}` : romanize(i),
+  );
+  const maxLength = Math.max(...romanNumbers.map((num) => num.length));
+
   return (
-    <div className="w-full text-gray-400 text-md flex font-bold flex-row justify-between px-1">
-      {Array.from({ length: end - start + 1 }, (_, i) => start + i).map((i) => {
-        // console.log(Math.abs(i));
-        return (
-          <div key={i} className="text-center">
-            {i < 1 ? "-" + romanize(Math.abs(i - 1)) : romanize(i)}
-          </div>
-        );
-      })}
+    <div className="w-full text-gray-400 text-sm flex font-bold flex-row justify-between px-1">
+      {romanNumbers.map((roman, i, { length }) => (
+        <div key={roman} className="text-center w-10">
+          {roman}
+          {/* {i === length - 1 ? roman : roman.padEnd(maxLength, "_")} */}
+        </div>
+      ))}
     </div>
   );
 }
