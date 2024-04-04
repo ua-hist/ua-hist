@@ -83,7 +83,7 @@ export function Navbar() {
               <DialogTrigger>
                 <Button variant="outline" className="ml-auto" asChild>
                   <span>
-                    <span>{t(`auth.login`)}</span>
+                    <span>{t(`auth.log_in`)}</span>
                   </span>
                 </Button>
               </DialogTrigger>
@@ -102,31 +102,31 @@ export function Navbar() {
 }
 
 function SignUpLoginDialog() {
+  const { t } = useTranslation();
+
   return (
     <Tabs defaultValue="signup">
       <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="signup">SignUp</TabsTrigger>
-        <TabsTrigger value="login">Login</TabsTrigger>
+        <TabsTrigger value="signup">{t(`auth.sign_up`)}</TabsTrigger>
+        <TabsTrigger value="login">{t(`auth.login`)}</TabsTrigger>
       </TabsList>
       <TabsContent value="signup">
         <Card>
           <CardHeader>
-            <CardDescription>
-              Make changes to your account here. Click save when you're done.
-            </CardDescription>
+            <CardDescription>{t(`auth.make_changes`)}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             <div className="space-y-1">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">{t(`auth.name`)}</Label>
               <Input id="name" defaultValue="Pedro Duarte" />
             </div>
             <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
+              <Label htmlFor="username">{t(`auth.username`)}</Label>
               <Input id="username" defaultValue="@peduarte" />
             </div>
           </CardContent>
           <CardFooter>
-            <Button>Save changes</Button>
+            <Button>{t(`auth.save_changes`)}</Button>
           </CardFooter>
         </Card>
       </TabsContent>

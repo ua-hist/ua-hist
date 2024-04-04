@@ -40,6 +40,12 @@
     "to": "to"
   },
   "auth": {
-    "login": "Log in"
+    "log_in": "Log in",
+    "login": "Login",
+    "sign_up": "SignUp",
+    "make_changes": "Make changes to your account here. Click save when you're done.",
+    "name": "Name",
+    "username": "Username",
+    "save_changes": "Save changes"
   }
 }
