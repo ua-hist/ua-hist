@@ -1,10 +1,5 @@
 import uaIcon from "../assets/ua_icon.png";
-import { GearIcon } from "@radix-ui/react-icons";
-import { SettingsControls } from "./settings/SettingsControls";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Button } from "./ui/button";
-import { NavLink } from "react-router-dom";
-import { LanguageSwitcher } from "./ui/language-switcher";
 import { useTranslation } from "react-i18next";
 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -20,23 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SavedEventsPage } from "./saved-events/SavedEventsPage";
-
-export function SettingsPopover() {
-  return (
-    <Popover>
-      <PopoverTrigger>
-        <Button variant="outline" className="ml-auto" asChild>
-          <span>
-            <GearIcon className="h-4 w-4" />
-          </span>
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-96 h-56" style={{ zIndex: 20 }}>
-        <SettingsControls />
-      </PopoverContent>
-    </Popover>
-  );
-}
+import { SettingsPopover } from "./settings/SettingsPopover";
 
 export function Navbar() {
   const { t } = useTranslation();
