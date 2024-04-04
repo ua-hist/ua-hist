@@ -4,11 +4,13 @@ import { StorageHelper } from "../../utils/storage";
 import { events } from "../../data/events";
 import { HistoryEvent } from "../../api/get-events";
 import { NavLink } from "react-router-dom";
+import { SheetClose, SheetFooter, SheetHeader, SheetTitle } from "../ui/sheet";
+import { Button } from "../ui/button";
 import { useTranslation } from "react-i18next";
 
 export function NavbarFull() {
   const { t } = useTranslation();
-  
+
   return (
     <>
       <div className="h-16 px-5 py-3 shadow-[#b6b6b6] shadow-md"></div>
@@ -41,8 +43,10 @@ export function SavedEventsPage() {
     .filter((e) => !!e) as HistoryEvent[];
 
   return (
-    <div>
-      <NavbarFull />
+    <>
+      <SheetHeader>
+        <SheetTitle>Saved events</SheetTitle>
+      </SheetHeader>
       <div>
         {savedEventsPopulated.length ? (
           <div className="flex flex-col w-[60%] m-auto">
@@ -66,6 +70,6 @@ export function SavedEventsPage() {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }

@@ -7,14 +7,26 @@ import { NavLink } from "react-router-dom";
 import { LanguageSwitcher } from "./ui/language-switcher";
 import { useTranslation } from "react-i18next";
 
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+  Card,
+  CardHeader,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { SavedEventsPage } from "./saved-events/SavedEventsPage";
 
 export function SettingsPopover() {
   const { t } = useTranslation();
@@ -54,13 +66,18 @@ export function Navbar() {
         </div>
 
         <div className="flex flex-row gap-4">
-          <div className="flex flex-row justify-center items-center">
-            <NavLink to={"/saved"}>
-              <Button variant="outline" className="ml-auto" asChild>
-                <span>{t(`saved`)}</span>
-              </Button>
-            </NavLink>
-          </div>
+          <Sheet>
+            <SheetTrigger
+              onClick={() => {
+                setTimeout(() => (document.body.style.pointerEvents = ""), 0);
+              }}
+            >
+              {t(`saved`)}
+            </SheetTrigger>
+            <SheetContent side="left">
+              <SavedEventsPage />
+            </SheetContent>
+          </Sheet>
           <div>
             <Dialog>
               <DialogTrigger>
@@ -71,13 +88,7 @@ export function Navbar() {
                 </Button>
               </DialogTrigger>
               <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Are you absolutely sure?</DialogTitle>
-                  <DialogDescription>
-                    This action cannot be undone. This will permanently delete
-                    your account and remove your data from our servers.
-                  </DialogDescription>
-                </DialogHeader>
+                <SignUpLoginDialog />
               </DialogContent>
             </Dialog>
           </div>
@@ -87,5 +98,60 @@ export function Navbar() {
         </div>
       </div>
     </div>
+  );
+}
+
+function SignUpLoginDialog() {
+  return (
+    <Tabs defaultValue="signup">
+      <TabsList className="grid w-full grid-cols-2">
+        <TabsTrigger value="signup">SignUp</TabsTrigger>
+        <TabsTrigger value="login">Login</TabsTrigger>
+      </TabsList>
+      <TabsContent value="signup">
+        <Card>
+          <CardHeader>
+            <CardDescription>
+              Make changes to your account here. Click save when you're done.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" defaultValue="Pedro Duarte" />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="username">Username</Label>
+              <Input id="username" defaultValue="@peduarte" />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button>Save changes</Button>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+      <TabsContent value="login">
+        <Card>
+          <CardHeader>
+            <CardDescription>
+              Change your password here. After saving, you'll be logged out.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="current">Current password</Label>
+              <Input id="current" type="password" />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="new">New password</Label>
+              <Input id="new" type="password" />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button>Save password</Button>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+    </Tabs>
   );
 }
