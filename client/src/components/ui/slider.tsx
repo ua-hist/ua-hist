@@ -4,7 +4,7 @@ import { romanize } from "romans";
 
 import { cn } from "@/lib/utils";
 
-function Numbers({ start, end }: { start: number; end: number }) {
+function CenturyNumbersList({ start, end }: { start: number; end: number }) {
   const numbers = Array.from({ length: end - start + 1 }, (_, i) => start + i);
   const romanNumbers = numbers.map((i) =>
     i < 1 ? `-${romanize(Math.abs(i - 1))}` : romanize(i),
@@ -47,7 +47,7 @@ const Slider = React.forwardRef<
       </div>
 
       <div className="absolute select-none top-1 w-full">
-        <Numbers start={props.min || 0} end={props.max || 20} />
+        <CenturyNumbersList start={props.min || 0} end={props.max || 20} />
       </div>
     </div>
   </div>
