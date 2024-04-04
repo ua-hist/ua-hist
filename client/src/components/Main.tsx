@@ -38,7 +38,7 @@ export function Main() {
           grid={[25, 25]}
           scale={1}
         >
-          <div className="h-[calc(80dvh)] bg-white absolute right-12 shadow-2xl rounded-xl w-96 top-24 transition-all overflow-hidden">
+          <div className="h-[calc(80dvh)] bg-white absolute right-12 shadow-2xl rounded-xl w-96 top-10 transition-all overflow-hidden">
             <div className="h-full relative">
               <div className="handle absolute bottom-0 w-24 hover:cursor-grab left-0 right-0 m-auto text-center p-4">
                 <div className="h-2 bg-black rounded-md"></div>
