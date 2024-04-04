@@ -9,14 +9,12 @@ function Numbers({ start, end }: { start: number; end: number }) {
   const romanNumbers = numbers.map((i) =>
     i < 1 ? `-${romanize(Math.abs(i - 1))}` : romanize(i),
   );
-  const maxLength = Math.max(...romanNumbers.map((num) => num.length));
 
   return (
     <div className="w-full text-gray-400 text-sm flex font-bold flex-row justify-between px-1">
-      {romanNumbers.map((roman, i, { length }) => (
+      {romanNumbers.map((roman) => (
         <div key={roman} className="text-center w-10">
           {roman}
-          {/* {i === length - 1 ? roman : roman.padEnd(maxLength, "_")} */}
         </div>
       ))}
     </div>
