@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { createUser } from "../../api/auth";
 
 type SignUpInput = {
   name: string;
@@ -22,10 +23,19 @@ function SignUp() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<SignUpInput>();
-  const onSubmit: SubmitHandler<SignUpInput> = (data) => console.log(data);
   const { t } = useTranslation();
+  const onSubmit: SubmitHandler<SignUpInput> = (data) => {
+    createUser(data).then((res) => {
+      if (res.message) {
+        setError("email", { message: t("auth.already_have_account") });
+        return;
+      }
+      console.log(res);
+    });
+  };
 
   return (
     <Card>
@@ -46,7 +56,7 @@ function SignUp() {
               type="email"
               {...register("email", { required: true })}
             />
-            {errors.email && <span>This field is required</span>}
+            {errors.email && <span>{errors.email.message}</span>}
           </div>
           <div className="space-y-1">
             <Label htmlFor="password">{t(`auth.password`)}</Label>
@@ -78,7 +88,9 @@ function LogIn() {
     handleSubmit,
     formState: { errors },
   } = useForm<LogInInput>();
-  const onSubmit: SubmitHandler<LogInInput> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<LogInInput> = (data) => {
+    createUser();
+  };
 
   return (
     <Card>

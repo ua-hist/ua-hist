@@ -40,6 +40,7 @@
     "to": "to"
   },
   "auth": {
+    "already_have_account": "Already have an account",
     "password": "Password",
     "email": "Email",
     "log_in": "Log in",

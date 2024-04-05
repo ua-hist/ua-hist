@@ -4,14 +4,17 @@ import "./App.scss";
 import { Main } from "./components/Main";
 import { DateProvider } from "./components/date/DateProvider";
 import { SettingsProvider } from "./components/settings/SettingsProvider";
+import { AuthProvider } from "./components/auth/AuthProvider";
 
 function App() {
   return (
     <div>
       <SettingsProvider>
-        <DateProvider>
-          <Main />
-        </DateProvider>
+        <AuthProvider>
+          <DateProvider>
+            <Main />
+          </DateProvider>
+        </AuthProvider>
       </SettingsProvider>
     </div>
   );
