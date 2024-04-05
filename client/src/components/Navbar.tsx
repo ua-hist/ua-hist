@@ -6,6 +6,50 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SavedEventsPage } from "./saved-events/SavedEventsPage";
 import { SettingsPopover } from "./settings/SettingsPopover";
 import { SignUpLoginDialog } from "./auth/SignupLoginDialog";
+import { useAuthContext } from "./auth/AuthProvider";
+import { toast } from "sonner";
+
+function AuthButtons() {
+  const { token, logout } = useAuthContext();
+  const { t } = useTranslation();
+
+  if (token) {
+    return (
+      <div>
+        <Button
+          variant="outline"
+          className="ml-auto"
+          onClick={() => {
+            logout();
+            toast(t("auth.success_loggout"));
+          }}
+        >
+          <span>Logout</span>
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div>
+        <Dialog>
+          <DialogTrigger>
+            <Button variant="outline" className="ml-auto" asChild>
+              <span>
+                <span>{t(`auth.log_in`)}</span>
+              </span>
+            </Button>
+          </DialogTrigger>
+
+          <DialogContent>
+            <SignUpLoginDialog />
+          </DialogContent>
+        </Dialog>
+      </div>
+    </>
+  );
+}
 
 export function Navbar() {
   const { t } = useTranslation();
@@ -38,21 +82,7 @@ export function Navbar() {
               <SavedEventsPage />
             </SheetContent>
           </Sheet>
-          <div>
-            <Dialog>
-              <DialogTrigger>
-                <Button variant="outline" className="ml-auto" asChild>
-                  <span>
-                    <span>{t(`auth.log_in`)}</span>
-                  </span>
-                </Button>
-              </DialogTrigger>
-
-              <DialogContent>
-                <SignUpLoginDialog />
-              </DialogContent>
-            </Dialog>
-          </div>
+          <AuthButtons />
           <div>
             <SettingsPopover />
           </div>

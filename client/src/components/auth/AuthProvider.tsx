@@ -5,6 +5,7 @@ import { createContext, useContext } from "react";
 export type AuthContextType = {
   token: string | null;
   setToken: (token: string) => void;
+  logout: () => void;
 };
 
 export const AuthContext = createContext<AuthContextType>(
@@ -16,6 +17,9 @@ export function AuthProvider(props: PropsWithChildren) {
   const [token, setToken] = useState<string | null>(
     localStorage.getItem("token"),
   );
+  const logout = () => {
+    setToken(null);
+  };
 
   useEffect(() => {
     const persistedAuth = localStorage.getItem("token");
@@ -26,7 +30,7 @@ export function AuthProvider(props: PropsWithChildren) {
   }, [token]);
 
   return (
-    <AuthContext.Provider value={{ token, setToken }}>
+    <AuthContext.Provider value={{ token, setToken, logout }}>
       {props.children}
     </AuthContext.Provider>
   );

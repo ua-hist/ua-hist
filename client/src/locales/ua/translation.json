@@ -41,6 +41,7 @@
     "to": "до"
   },
   "auth": {
+    "success_loggout": "Ви успішно вийшли",
     "success_logged_in": "Ви успішно увійшли",
     "invalid_credentials": "Неправильна пошта або пароль",
     "success_registered": "Успішно зареєстровано",
