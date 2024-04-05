@@ -5,6 +5,7 @@ import { Main } from "./components/Main";
 import { DateProvider } from "./components/date/DateProvider";
 import { SettingsProvider } from "./components/settings/SettingsProvider";
 import { AuthProvider } from "./components/auth/AuthProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           </DateProvider>
         </AuthProvider>
       </SettingsProvider>
+      <Toaster />
     </div>
   );
 }

@@ -11,7 +11,9 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { createUser } from "../../api/auth";
+import { createUser, siginUser } from "../../api/auth";
+import { toast } from "sonner";
+import { useAuthContext } from "./AuthProvider";
 
 type SignUpInput = {
   name: string;
@@ -33,7 +35,7 @@ function SignUp() {
         setError("email", { message: t("auth.already_have_account") });
         return;
       }
-      console.log(res);
+      toast(t("auth.success_registered"));
     });
   };
 
@@ -86,10 +88,20 @@ function LogIn() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<LogInInput>();
+  const { setToken } = useAuthContext();
   const onSubmit: SubmitHandler<LogInInput> = (data) => {
-    createUser();
+    siginUser(data).then((res) => {
+      console.log(res);
+      if (res.message) {
+        setError("email", { message: t("auth.invalid_credentials") });
+        return;
+      }
+      toast(t("auth.success_logged_in"));
+      setToken(res.token);
+    });
   };
 
   return (
@@ -106,7 +118,7 @@ function LogIn() {
               type="email"
               {...register("email", { required: true })}
             />
-            {errors.email && <span>This field is required</span>}
+            {errors.email && <span>{errors.email.message}</span>}
           </div>
           <div className="space-y-1">
             <Label htmlFor="password">{t(`auth.password`)}</Label>

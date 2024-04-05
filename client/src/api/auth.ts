@@ -14,7 +14,22 @@ export function createUser(input: CreateUser) {
     },
     body: JSON.stringify(input),
   }).then((res) => {
-    console.log(res);
+    return res.json();
+  });
+}
+
+type LogInInput = {
+  email: string;
+  password: string;
+};
+export function siginUser(input: LogInInput) {
+  return fetch(apiUrl + "/auth/signin", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(input),
+  }).then((res) => {
     return res.json();
   });
 }

@@ -40,6 +40,9 @@
     "to": "to"
   },
   "auth": {
+    "success_logged_in": "You have successfully logged in.",
+    "invalid_credentials": "Invalid email or password",
+    "success_registered": "You have successfully registered. Please log in.",
     "already_have_account": "Already have an account",
     "password": "Password",
     "email": "Email",
