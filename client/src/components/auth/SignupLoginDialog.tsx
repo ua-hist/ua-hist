@@ -10,6 +10,109 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type SignUpInput = {
+  name: string;
+  email: string;
+  password: string;
+};
+
+function SignUp() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignUpInput>();
+  const onSubmit: SubmitHandler<SignUpInput> = (data) => console.log(data);
+  const { t } = useTranslation();
+
+  return (
+    <Card>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <CardHeader>
+          <CardDescription>{t(`auth.signup`)}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          <div className="space-y-1">
+            <Label htmlFor="name">{t(`auth.name`)}</Label>
+            <Input id="name" {...register("name", { required: true })} />
+            {errors.name && <span>This field is required</span>}
+          </div>
+          <div className="space-y-1">
+            <Label htmlFor="email">{t(`auth.email`)}</Label>
+            <Input
+              id="email"
+              type="email"
+              {...register("email", { required: true })}
+            />
+            {errors.email && <span>This field is required</span>}
+          </div>
+          <div className="space-y-1">
+            <Label htmlFor="password">{t(`auth.password`)}</Label>
+            <Input
+              id="password"
+              type="password"
+              {...register("password", { required: true })}
+            />
+            {errors.password && <span>This field is required</span>}
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button type="submit">{t(`auth.save_changes`)}</Button>
+        </CardFooter>
+      </form>
+    </Card>
+  );
+}
+
+type LogInInput = {
+  email: string;
+  password: string;
+};
+
+function LogIn() {
+  const { t } = useTranslation();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LogInInput>();
+  const onSubmit: SubmitHandler<LogInInput> = (data) => console.log(data);
+
+  return (
+    <Card>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <CardHeader>
+          <CardDescription>{t(`auth.log_in`)}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          <div className="space-y-1">
+            <Label htmlFor="email">{t(`auth.email`)}</Label>
+            <Input
+              id="email"
+              type="email"
+              {...register("email", { required: true })}
+            />
+            {errors.email && <span>This field is required</span>}
+          </div>
+          <div className="space-y-1">
+            <Label htmlFor="password">{t(`auth.password`)}</Label>
+            <Input
+              id="password"
+              type="password"
+              {...register("password", { required: true })}
+            />
+            {errors.password && <span>This field is required</span>}
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button type="submit">{t(`auth.log_in`)}</Button>
+        </CardFooter>
+      </form>
+    </Card>
+  );
+}
 
 export function SignUpLoginDialog() {
   const { t } = useTranslation();
@@ -21,45 +124,11 @@ export function SignUpLoginDialog() {
         <TabsTrigger value="login">{t(`auth.login`)}</TabsTrigger>
       </TabsList>
       <TabsContent value="signup">
-        <Card>
-          <CardHeader>
-            <CardDescription>{t(`auth.make_changes`)}</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="name">{t(`auth.name`)}</Label>
-              <Input id="name" defaultValue="Pedro Duarte" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="username">{t(`auth.username`)}</Label>
-              <Input id="username" defaultValue="@peduarte" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>{t(`auth.save_changes`)}</Button>
-          </CardFooter>
-        </Card>
+        <SignUp />
       </TabsContent>
 
       <TabsContent value="login">
-        <Card>
-          <CardHeader>
-            <CardDescription>{t(`auth.change_password`)}</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">{t(`auth.current_password`)}</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">{t(`auth.new_password`)}</Label>
-              <Input id="new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>{t(`auth.save_password`)}</Button>
-          </CardFooter>
-        </Card>
+        <LogIn />
       </TabsContent>
     </Tabs>
   );

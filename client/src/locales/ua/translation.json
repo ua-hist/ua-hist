@@ -41,6 +41,7 @@
     "to": "до"
   },
   "auth": {
+    "email": "Пошта",
     "log_in": "Увійти",
     "login": "Увійти",
     "sign_up": "Реєстрація",
@@ -51,6 +52,8 @@
     "change_password": "Змініть пароль тут",
     "current_password": "Поточний пароль",
     "new_password": "Новий пароль",
-    "save_password": "Зберегти пароль"
+    "save_password": "Зберегти пароль",
+    "signup": "Реєстрація",
+    "password": "Пароль"
   }
 }
