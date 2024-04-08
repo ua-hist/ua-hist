@@ -14,6 +14,7 @@ export type HistoryEvent = {
 
 export const getAllEvents = async (locale = "en"): Promise<HistoryEvent[]> => {
   return Promise.resolve(locale === "en" ? eventsEn : events).then(
-    (records: HistoryEvent[]) => records,
+    (records: HistoryEvent[]) =>
+      records.sort((a, b) => a.startYear! - b.startYear!),
   );
 };

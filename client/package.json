@@ -27,6 +27,7 @@
     "i18next": "^23.10.1",
     "i18next-browser-languagedetector": "^7.2.0",
     "leaflet": "^1.9.4",
+    "leaflet-textpath": "^1.2.3",
     "lodash": "^4.17.21",
     "lucide-react": "^0.360.0",
     "next-themes": "^0.3.0",

@@ -1,15 +1,26 @@
 import { MarkerIcon, MarkerInfo } from "../api/get-markers";
 import { TimedData } from "../utils/timed-data";
 import { v4 as uuid } from "uuid";
-import cityIconUrl from "../assets/city_icon.png";
+import cityIconUrl from "../assets/fortress_icon.jpg";
 import fireIconUrl from "../assets/fire_icon2.webp";
 import battleIconUrl from "../assets/battle_icon.png";
 import siegeIconUrl from "../assets/siege_icon.png";
+import oleg from "../assets/oleg_the_wise.jpg";
+import igor from "../assets/igor_the_old.jpg";
+import olha from "../assets/olga_the_fst.jpg";
+import sviatoslav from "../assets/sviatoslav_the_fst.png";
 
 const cityIcon: MarkerIcon = {
   iconUrl: cityIconUrl,
   iconSize: [15, 15],
   iconAnchor: [0, 0],
+};
+
+const rulerIcon: MarkerIcon = {
+  iconUrl: cityIconUrl,
+  iconSize: [100, 100],
+  iconAnchor: [0, 0],
+  className: "ruler",
 };
 
 const fireIcon: MarkerIcon = {
@@ -174,6 +185,60 @@ const markersTemp: TimedData<MarkerInfo>[] = [
       icon: siegeIcon,
     },
     451,
+  ],
+  [
+    {
+      pos: [47.821667, 31.175],
+      desc: "",
+      label: "Битва на Південному Бузі",
+      icon: battleIcon,
+    },
+    896,
+  ],
+  [
+    {
+      pos: [51.705222, 30.661667],
+      desc: "",
+      label: "Битва під Любечем",
+      icon: battleIcon,
+    },
+    1016,
+  ],
+  [
+    {
+      pos: [50.45, 30.523333],
+      desc: "Oleh the Wise, Prince of Kyiv 882-912",
+      icon: { ...rulerIcon, iconUrl: oleg },
+      type: "ruler",
+    },
+    [882, 912],
+  ],
+  [
+    {
+      pos: [50.45, 30.523333],
+      desc: "Ihor the Old, Prince of Kyiv 912-945",
+      icon: { ...rulerIcon, iconUrl: igor },
+      type: "ruler",
+    },
+    [912, 945],
+  ],
+  [
+    {
+      pos: [50.45, 30.523333],
+      desc: "Olha I, Princess of Kyiv 945-964",
+      icon: { ...rulerIcon, iconUrl: olha },
+      type: "ruler",
+    },
+    [945, 964],
+  ],
+  [
+    {
+      pos: [50.45, 30.523333],
+      desc: "Sviatoslav I, Princess of Kyiv 964-972",
+      icon: { ...rulerIcon, iconUrl: sviatoslav },
+      type: "ruler",
+    },
+    [964, 972],
   ],
 ];
 

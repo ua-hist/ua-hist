@@ -5,6 +5,7 @@ export type MarkerIcon = {
   iconUrl: string;
   iconSize?: [number, number];
   iconAnchor?: [number, number];
+  className?: string;
 };
 
 export type MarkerInfo = {
@@ -13,6 +14,7 @@ export type MarkerInfo = {
   desc?: string;
   label?: string;
   icon?: MarkerIcon;
+  type?: string;
 };
 
 export async function getMarkers(year: number): Promise<MarkerInfo[]> {
