@@ -12,6 +12,8 @@ import { MapEventsLayer } from "./MapEventsLayer";
 import { StorageHelper } from "../../utils/storage";
 import { useSettingsContext } from "../settings/SettingsContext";
 import { useDateContext } from "../date/DateContext";
+import { MarkerInfo, getMarkers } from "../../api/get-markers";
+import { MarkerLayer } from "./MarkerLayer";
 
 export function MapSection() {
   const { date } = useDateContext();
@@ -21,9 +23,14 @@ export function MapSection() {
   } = useSettingsContext();
 
   const [features, setFeatures] = useState<Feature<MultiPolygon>[]>([]);
+  const [markers, setMarkers] = useState<MarkerInfo[]>([]);
 
   useEffect(() => {
     getMaps(date).then(setFeatures);
+  }, [date]);
+
+  useEffect(() => {
+    getMarkers(date).then(setMarkers);
   }, [date]);
 
   const filteredFeats = useMemo(() => {
@@ -34,22 +41,19 @@ export function MapSection() {
     return features;
   }, [mapMode, features]);
 
-  const corner1 = L.latLng(-90, -200);
-  const corner2 = L.latLng(90, 200);
-  const bounds = L.latLngBounds(corner1, corner2);
-
   return (
     <MapContainer
       className="h-full z-0"
       center={StorageHelper.get("center", [50.4504, 30.5245])}
       zoom={StorageHelper.get("zoom", 5)}
       scrollWheelZoom={true}
-      maxBounds={bounds}
+      maxBounds={L.latLngBounds(L.latLng(-90, -200), L.latLng(90, 200))}
       maxBoundsViscosity={1.0}
       minZoom={3}
     >
       <TileLayerContainer />
       <GeoJsonLayer features={filteredFeats} />
+      <MarkerLayer markers={markers} />
       <MapEventsLayer />
     </MapContainer>
   );
