@@ -6,6 +6,7 @@ import fireIconUrl from "../assets/fire_icon2.webp";
 import battleIconUrl from "../assets/battle_icon.png";
 import siegeIconUrl from "../assets/siege_icon.png";
 import { markersTempKyivanRulers } from "./rulers/kyivan_rus/kyivan_rulers";
+import { markersTempByzantineRulers } from "./rulers/byzantine/byzantine_rulers";
 
 const cityIcon: MarkerIcon = {
   iconUrl: cityIconUrl,
@@ -195,6 +196,7 @@ const markersTemp: TimedData<MarkerInfo>[] = [
     1016,
   ],
   ...markersTempKyivanRulers,
+  ...markersTempByzantineRulers,
 ];
 
 export const markersWithDates: TimedData<MarkerInfo>[] = markersTemp.map(
