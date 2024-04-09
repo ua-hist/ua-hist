@@ -60,10 +60,10 @@ export const GeoJsonLayer = ({
     layerRef.current = group;
 
     features.forEach((f) => {
-      group.addLayer(renderFeature(f, mapStyleFn));
-      map.addLayer(group);
+      group.addLayer(renderFeature(f, mapStyleFn)).bringToBack();
     });
-  }, [features, map, settings.mapStyleId, renderFeature]);
+    map.addLayer(group);
+  }, [map, features, settings.mapStyleId, renderFeature]);
 
   return <></>;
 };

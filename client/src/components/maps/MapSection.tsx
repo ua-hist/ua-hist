@@ -14,6 +14,8 @@ import { useSettingsContext } from "../settings/SettingsContext";
 import { useDateContext } from "../date/DateContext";
 import { MarkerInfo, getMarkers } from "../../api/get-markers";
 import { MarkerLayer } from "./MarkerLayer";
+import { ArrowsLayer } from "./ArrowsLayer";
+import { CampaignInfo, getCampaigns } from "../../api/get-campaigns";
 
 export function MapSection() {
   const { date } = useDateContext();
@@ -24,13 +26,16 @@ export function MapSection() {
 
   const [features, setFeatures] = useState<Feature<MultiPolygon>[]>([]);
   const [markers, setMarkers] = useState<MarkerInfo[]>([]);
+  const [campaigns, setCampaigns] = useState<CampaignInfo[]>([]);
 
   useEffect(() => {
-    getMaps(date).then(setFeatures);
-  }, [date]);
-
-  useEffect(() => {
-    getMarkers(date).then(setMarkers);
+    Promise.all([getMaps(date), getMarkers(date), getCampaigns(date)]).then(
+      ([dMaps, dMarkers, dCampaigns]) => {
+        setFeatures(dMaps);
+        setMarkers(dMarkers);
+        setCampaigns(dCampaigns);
+      },
+    );
   }, [date]);
 
   const filteredFeats = useMemo(() => {
@@ -55,6 +60,7 @@ export function MapSection() {
       <GeoJsonLayer features={filteredFeats} />
       <MarkerLayer markers={markers} />
       <MapEventsLayer />
+      <ArrowsLayer campaigns={campaigns} />
     </MapContainer>
   );
 }
