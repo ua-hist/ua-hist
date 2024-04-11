@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/context-menu";
 import { HistoryEvent } from "../../api/get-events";
 import { StorageHelper } from "../../utils/storage";
+import { cn } from "../../lib/utils";
 
 export function TimeLineEvent({
   event,
@@ -30,9 +31,10 @@ export function TimeLineEvent({
     <ContextMenu>
       <ContextMenuTrigger>
         <div
-          className={
-            "event " + (event.id === selectedEventId ? "selected" : "")
-          }
+          className={cn([
+            "event " + (event.id === selectedEventId ? "selected" : ""),
+            "transition-all",
+          ])}
           data-id={event.id}
           key={event.id}
           onClick={() => handleEventClick(event)}
