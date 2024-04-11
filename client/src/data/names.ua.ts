@@ -141,7 +141,7 @@ export const namesUa: Record<string, string> = {
   "Bulgar Khanate": "Булгар Ханство",
   "Icelandic Commonwealth": "Ісландська Річ Посполита",
   "Denmark-Norway": "Данія-Норвегія",
-  Peshemegs: "Пешемег",
+  Peshemegs: "Печеніги",
   Norway: "Норвегія",
   Hungary: "Угорщина",
   Denmark: "Данія",

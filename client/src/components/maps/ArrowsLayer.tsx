@@ -28,7 +28,7 @@ export function ArrowsLayer({ campaigns }: { campaigns: CampaignInfo[] }) {
 
     campaigns.forEach((campaignInfo) => {
       const arrowOptions: ArrowheadOptions = {
-        frequency: "allvertices",
+        frequency: "20px",
         size: "10px",
       };
 

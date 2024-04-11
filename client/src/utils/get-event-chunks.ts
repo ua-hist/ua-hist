@@ -22,7 +22,7 @@ function getChunkTitle(chunk: HistoryEvent[]) {
 export function getEventChunks(
   events: HistoryEvent[],
 ): { title: [string, string]; events: HistoryEvent[] }[] {
-  return sliceIntoChunks(events, 40).map((chunk) => ({
+  return sliceIntoChunks(events, 100).map((chunk) => ({
     title: getChunkTitle(chunk),
     events: chunk,
   }));

@@ -6,11 +6,21 @@ import yaropolk from "../../../assets/yaropolk_the_fst.jpg";
 import volodymyr from "../../../assets/volodymyr_the_great.jpg";
 import sviatopolk from "../../../assets/sviatopolk_the_fst.jpg";
 import yaroslav from "../../../assets/yaroslav_the_wise.jpg";
+import askold from "../../../assets/askold.png";
 import { TimedData } from "../../../utils/timed-data";
 import { MarkerInfo } from "../../../api/get-markers";
 import { rulerIcon } from "../util";
 
 export const markersTempKyivanRulers: TimedData<MarkerInfo>[] = [
+  [
+    {
+      pos: [50.45, 30.523333],
+      desc: "Askold and Dir",
+      icon: { ...rulerIcon, iconUrl: askold },
+      type: "ruler",
+    },
+    [860, 882],
+  ],
   [
     {
       pos: [50.45, 30.523333],
