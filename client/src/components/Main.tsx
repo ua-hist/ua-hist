@@ -5,7 +5,7 @@ import { TimeLineList } from "./timeline/TimeLineList";
 import { Slider } from "./ui/slider";
 import { useDateContext } from "./date/DateContext";
 import { numToCenturyStart } from "../utils/century";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { Button } from "./ui/button";
 import {
@@ -16,11 +16,37 @@ import {
   DrawerFooter,
   DrawerClose,
 } from "./ui/drawer";
+import { CalendarIcon } from "@radix-ui/react-icons";
+
+type Props = {
+  children: React.ReactNode;
+  waitBeforeShow?: number;
+};
+
+function Delayed({ children, waitBeforeShow = 0 }: Props) {
+  const [isShown, setIsShown] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsShown(true);
+    }, waitBeforeShow);
+    return () => clearTimeout(timer);
+  }, [waitBeforeShow]);
+
+  return isShown ? children : null;
+}
 
 function List() {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const timeLine = useMemo(() => <TimeLineList />, []);
+  const timeLine = useMemo(
+    () => (
+      <Delayed>
+        <TimeLineList />
+      </Delayed>
+    ),
+    [],
+  );
 
   if (isDesktop) {
     return (
@@ -46,8 +72,11 @@ function List() {
   return (
     <Drawer open={open} onOpenChange={setOpen} modal={false}>
       <DrawerTrigger asChild>
-        <Button variant="outline" className="absolute right-4 bottom-10">
-          Події
+        <Button
+          variant="outline"
+          className="absolute right-4 bottom-10 text-xl"
+        >
+          <CalendarIcon className="w-6 h-6" />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -64,30 +93,41 @@ function List() {
   );
 }
 
-export function Main() {
+function TimeSlider() {
   const { setDate } = useDateContext();
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
+  if (!isDesktop) {
+    return null;
+  }
+
+  return (
+    <div className="absolute -bottom-4 hover:bottom-0 w-full transition-all py-4">
+      <div className="container">
+        <Slider
+          defaultValue={[2]}
+          max={21}
+          min={-4}
+          step={1}
+          onValueCommit={([centuryIndex]) => {
+            const year = numToCenturyStart(centuryIndex);
+            // console.log(year);
+            setDate(year);
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+export function Main() {
   return (
     <div className="!max-h-screen h-screen relative min-h-screen overflow-hidden">
       <Navbar />
       <div className="relavite h-screen overflow-hidden">
         <div className="h-screen relative">
           <MapSection />
-          <div className="absolute -bottom-4 hover:bottom-0 w-full transition-all py-4">
-            <div className="container">
-              <Slider
-                defaultValue={[2]}
-                max={21}
-                min={-4}
-                step={1}
-                onValueChange={([centuryIndex]) => {
-                  const year = numToCenturyStart(centuryIndex);
-                  // console.log(year);
-                  setDate(year);
-                }}
-              />
-            </div>
-          </div>
+          <TimeSlider />
         </div>
         <List />
       </div>

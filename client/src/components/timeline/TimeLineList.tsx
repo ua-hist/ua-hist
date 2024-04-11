@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { HistoryEvent, getAllEvents } from "../../api/get-events";
 import { StorageHelper } from "../../utils/storage";
 import { events } from "../../data/events";

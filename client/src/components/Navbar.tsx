@@ -55,15 +55,15 @@ export function Navbar() {
   const { t } = useTranslation();
 
   return (
-    <div className="px-5 py-3 border-black shadow-[#b6b6b6] shadow-md bg-slate-50 fixed z-10 md:top-2 md:left-14 rounded-lg">
-      <div className="flex justify-between align-center md:gap-10">
+    <div className="px-5 w-full sm:w-fit py-3 border-black shadow-[#b6b6b6] shadow-md bg-slate-50 fixed z-10 md:top-2 md:left-14 rounded-lg">
+      <div className="flex justify-between align-center sm:gap-10">
         <div className="flex flex-row gap-4">
           <div className="flex flex-row justify-center items-center">
             <img className="w-10 h-10" src={uaIcon} alt="ua_icon_logo" />
           </div>
 
           <div className="flex flex-row justify-center items-center">
-            <div className="text-lg font-medium text-slate-800">
+            <div className="hidden sm:block text-lg font-medium text-slate-800">
               {t(`title`)}
             </div>
           </div>
