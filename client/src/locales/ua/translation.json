@@ -22,9 +22,9 @@
 
   "showLandRuler": "Показувати правителя країни",
   "saved": "Збережені події",
-
+  "close": "Закрити",
   "noEvents": "Відсутні події",
-
+  "save": "Зберегти",
   "title": "Атлас Історії України",
 
   "languageSwitcher": {
@@ -42,11 +42,13 @@
     "to": "до"
   },
   "auth": {
+    "logout": "Вийти",
     "success_loggout": "Ви успішно вийшли",
     "success_logged_in": "Ви успішно увійшли",
     "invalid_credentials": "Неправильна пошта або пароль",
     "success_registered": "Успішно зареєстровано",
     "already_have_account": "Вже є обліковий запис",
+    "field_required": "Обов'язкове поле",
     "email": "Пошта",
     "log_in": "Увійти",
     "login": "Увійти",

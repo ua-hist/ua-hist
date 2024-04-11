@@ -24,7 +24,7 @@ function AuthButtons() {
             toast(t("auth.success_loggout"));
           }}
         >
-          <span>Logout</span>
+          <span>{t('auth.logout')}</span>
         </Button>
       </div>
     );

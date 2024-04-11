@@ -43,13 +43,13 @@ function SignUp() {
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
         <CardHeader>
-          <CardDescription>{t(`auth.signup`)}</CardDescription>
+          <CardDescription>{t(`auth.sign_up`)}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-2">
           <div className="space-y-1">
             <Label htmlFor="name">{t(`auth.name`)}</Label>
             <Input id="name" {...register("name", { required: true })} />
-            {errors.name && <span>This field is required</span>}
+            {errors.name && <span>{t('auth.field_required')}</span>}
           </div>
           <div className="space-y-1">
             <Label htmlFor="email">{t(`auth.email`)}</Label>
@@ -67,7 +67,7 @@ function SignUp() {
               type="password"
               {...register("password", { required: true })}
             />
-            {errors.password && <span>This field is required</span>}
+            {errors.password && <span>{t('auth.field_required')}</span>}
           </div>
         </CardContent>
         <CardFooter>
@@ -127,7 +127,7 @@ function LogIn() {
               type="password"
               {...register("password", { required: true })}
             />
-            {errors.password && <span>This field is required</span>}
+            {errors.password && <span>{t('auth.field_required')}</span>}
           </div>
         </CardContent>
         <CardFooter>

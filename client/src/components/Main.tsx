@@ -17,6 +17,7 @@ import {
   DrawerClose,
 } from "./ui/drawer";
 import { CalendarIcon } from "@radix-ui/react-icons";
+import { t } from "i18next";
 
 type Props = {
   children: React.ReactNode;
@@ -85,7 +86,7 @@ function List() {
         </DrawerHeader>
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
-            <Button variant="outline">Close</Button>
+            <Button variant="outline">{t('close')}</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>

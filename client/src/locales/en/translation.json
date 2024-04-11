@@ -20,9 +20,9 @@
   "settings": "Settings",
   "showLandRuler": "Show Land Ruler",
   "saved": "Saved events",
-
+  "close": "Close",
   "noEvents": "No saved events yet",
-
+  "save": "Save",
   "title": "Ukraine History Atlas",
 
   "languageSwitcher": {
@@ -40,16 +40,18 @@
     "to": "to"
   },
   "auth": {
+    "logout": "Logout",
     "success_loggout": "You have successfully logged out.",
     "success_logged_in": "You have successfully logged in.",
     "invalid_credentials": "Invalid email or password",
     "success_registered": "You have successfully registered. Please log in.",
+    "field_required": "This field is required",
     "already_have_account": "Already have an account",
     "password": "Password",
     "email": "Email",
     "log_in": "Log in",
     "login": "Login",
-    "sign_up": "SignUp",
+    "sign_up": "Sign Up",
     "make_changes": "Make changes to your account here. Click save when you're done.",
     "signup": "SignUp",
     "name": "Name",

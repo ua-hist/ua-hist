@@ -7,6 +7,7 @@ import {
 import { HistoryEvent } from "../../api/get-events";
 import { StorageHelper } from "../../utils/storage";
 import { cn } from "../../lib/utils";
+import { t } from "i18next";
 
 export function TimeLineEvent({
   event,
@@ -55,7 +56,7 @@ export function TimeLineEvent({
         </div>
       </ContextMenuTrigger>
       <ContextMenuContent>
-        <ContextMenuItem onClick={handleSave}>Save</ContextMenuItem>
+        <ContextMenuItem onClick={handleSave}>{t('save')}</ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
   );

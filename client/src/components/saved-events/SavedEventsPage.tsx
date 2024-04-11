@@ -45,7 +45,7 @@ export function SavedEventsPage() {
   return (
     <>
       <SheetHeader>
-        <SheetTitle>Saved events</SheetTitle>
+        <SheetTitle>{t('saved')}</SheetTitle>
       </SheetHeader>
       <div>
         {savedEventsPopulated.length ? (
