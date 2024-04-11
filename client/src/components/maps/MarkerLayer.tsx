@@ -4,12 +4,14 @@ import { useMap } from "react-leaflet";
 import { MarkerInfo } from "../../api/get-markers";
 import cityIcon from "../../assets/fortress_icon.jpg";
 import { useShowLabels } from "./use-show-labels";
+import { useSettingsContext } from "../settings/SettingsContext";
 
 const showLabelsZoomLimit = 5;
 
 export function MarkerLayer({ markers }: { markers: MarkerInfo[] }) {
   const map = useMap();
 
+  const { settings } = useSettingsContext();
   const layerRef = useRef<L.FeatureGroup>();
 
   const showLabels = useShowLabels(map, showLabelsZoomLimit);
@@ -22,6 +24,9 @@ export function MarkerLayer({ markers }: { markers: MarkerInfo[] }) {
     const group = new L.FeatureGroup();
     layerRef.current = group;
 
+    if (!settings.showLandRuler) {
+      return;
+    }
     markers.forEach((marker) => {
       const { pos, desc, label, icon } = marker;
 
@@ -51,7 +56,7 @@ export function MarkerLayer({ markers }: { markers: MarkerInfo[] }) {
       group.addLayer(leafletMarker);
       map.addLayer(group);
     });
-  }, [map, markers, showLabels]);
+  }, [map, markers, showLabels, settings.showLandRuler]);
 
   return <></>;
 }

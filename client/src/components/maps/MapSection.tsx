@@ -20,9 +20,7 @@ import { CampaignInfo, getCampaigns } from "../../api/get-campaigns";
 export function MapSection() {
   const { date } = useDateContext();
 
-  const {
-    settings: { mapMode },
-  } = useSettingsContext();
+  const { settings } = useSettingsContext();
 
   const [features, setFeatures] = useState<Feature<MultiPolygon>[]>([]);
   const [markers, setMarkers] = useState<MarkerInfo[]>([]);
@@ -39,12 +37,12 @@ export function MapSection() {
   }, [date]);
 
   const filteredFeats = useMemo(() => {
-    if (mapMode === "ukraine") {
+    if (settings.mapMode === "ukraine") {
       return getIntersectingShapes(uaBounds, features);
     }
 
     return features;
-  }, [mapMode, features]);
+  }, [settings.mapMode, features]);
 
   return (
     <MapContainer
