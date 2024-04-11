@@ -13,7 +13,7 @@ export function SettingsPopover() {
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-96 h-56" style={{ zIndex: 20 }}>
+      <PopoverContent className="w-96" style={{ zIndex: 20 }}>
         <SettingsControls />
       </PopoverContent>
     </Popover>

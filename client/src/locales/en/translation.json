@@ -18,7 +18,7 @@
   },
 
   "settings": "Settings",
-
+  "showLandRuler": "Show Land Ruler",
   "saved": "Saved events",
 
   "noEvents": "No saved events yet",
