@@ -1,9 +1,13 @@
 import { useEffect } from "react";
-import { useMap } from "react-leaflet";
+import { useMap, useMapEvent } from "react-leaflet";
 import { StorageHelper } from "../../utils/storage";
 
 export function MapEventsLayer() {
   const map = useMap();
+
+  useMapEvent("click", (e) => {
+    console.log(e.latlng);
+  });
 
   useEffect(() => {
     map.on("zoomend", () => {
