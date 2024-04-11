@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import L from "leaflet";
-import { useMap } from "react-leaflet";
+import { useMap, useMapEvent } from "react-leaflet";
 import { MarkerInfo } from "../../api/get-markers";
 import cityIcon from "../../assets/fortress_icon.jpg";
 import { useShowLabels } from "./use-show-labels";
 import { useSettingsContext } from "../settings/SettingsContext";
+import { useCoordinatesStore } from "../../store/coordinates";
 
 const showLabelsZoomLimit = 5;
 

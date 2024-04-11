@@ -16,6 +16,7 @@ import { MarkerInfo, getMarkers } from "../../api/get-markers";
 import { MarkerLayer } from "./MarkerLayer";
 import { ArrowsLayer } from "./ArrowsLayer";
 import { CampaignInfo, getCampaigns } from "../../api/get-campaigns";
+import { MapEventAddLayer } from "./MapEventAddLayer";
 
 export function MapSection() {
   const { date } = useDateContext();
@@ -58,6 +59,7 @@ export function MapSection() {
       <GeoJsonLayer features={filteredFeats} />
       <MarkerLayer markers={markers} />
       <MapEventsLayer />
+      <MapEventAddLayer />
       <ArrowsLayer campaigns={campaigns} />
     </MapContainer>
   );

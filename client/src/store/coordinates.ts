@@ -2,16 +2,27 @@ import { create } from "zustand";
 
 type CoordinatesState = {
   coordinates: {
-    x: number;
-    y: number;
+    lat: number;
+    lng: number;
   };
-  setCoordinates: (coordinates: { x: number; y: number }) => void;
+  isActive: boolean;
+  setCoordinates: (coordinates: { lat: number; lng: number }) => void;
+  reset: () => void;
+  activate: () => void;
 };
 
 export const useCoordinatesStore = create<CoordinatesState>((set) => ({
   coordinates: {
-    x: 0,
-    y: 0,
+    lat: 0,
+    lng: 0,
   },
+  isActive: true,
   setCoordinates: (coordinates) => set((state) => ({ ...state, coordinates })),
+  reset: () =>
+    set((state) => ({
+      ...state,
+      isActive: false,
+      coordinates: { lat: 0, lng: 0 },
+    })),
+  activate: () => set((state) => ({ ...state, isActive: true })),
 }));
