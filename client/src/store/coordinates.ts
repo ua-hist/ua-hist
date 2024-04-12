@@ -8,7 +8,7 @@ type CoordinatesState = {
   isActive: boolean;
   setCoordinates: (coordinates: { lat: number; lng: number }) => void;
   reset: () => void;
-  activate: () => void;
+  setIsActive: (isActive: boolean) => void;
 };
 
 export const useCoordinatesStore = create<CoordinatesState>((set) => ({
@@ -16,13 +16,23 @@ export const useCoordinatesStore = create<CoordinatesState>((set) => ({
     lat: 0,
     lng: 0,
   },
-  isActive: true,
-  setCoordinates: (coordinates) => set((state) => ({ ...state, coordinates })),
+  isActive: false,
+  setCoordinates: (coordinates) =>
+    set((state) => ({ ...state, coordinates, isActive: false })),
   reset: () =>
     set((state) => ({
       ...state,
       isActive: false,
       coordinates: { lat: 0, lng: 0 },
     })),
-  activate: () => set((state) => ({ ...state, isActive: true })),
+  setIsActive: (isActive) => {
+    if (isActive == false) {
+      set((state) => ({
+        ...state,
+        coordinates: { lat: 0, lng: 0 },
+      }));
+    } else {
+      set((state) => ({ ...state, isActive }));
+    }
+  },
 }));
