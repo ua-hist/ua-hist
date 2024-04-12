@@ -17,15 +17,7 @@ import {
   CardFooter,
 } from "./ui/card";
 import { Textarea } from "./ui/textarea";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectGroup,
-  SelectLabel,
-  SelectItem,
-} from "./ui/select";
+import { Input } from "./ui/input";
 
 function AddEventForm() {
   const coordinates = useCoordinatesStore((state) => state.coordinates);
@@ -55,6 +47,9 @@ function AddEventForm() {
         <CardDescription>Створити подію</CardDescription>
       </CardHeader>
       <CardContent className="space-y-2">
+        <div className="space-y-1">
+          <Input type="number" />
+        </div>
         <div className="space-y-1">
           <Textarea id="body" {...register("body", { required: true })} />
           {errors.body && <span>{errors.body.message}</span>}
