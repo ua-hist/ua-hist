@@ -16,6 +16,7 @@
     "Blank": "Blank",
     "Grayscale": "Grayscale"
   },
+  "settings_language": "Language",
 
   "settings": "Settings",
   "showLandRuler": "Show Land Ruler",
@@ -61,5 +62,7 @@
     "current_password": "Current password",
     "new_password": "New password",
     "save_password": "Save password"
-  }
+  },
+  "add_event": "Add event",
+  "pick_coords": "Pick coordinates on the map"
 }

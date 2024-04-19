@@ -24,7 +24,7 @@ export function LangControl() {
   return (
     <div className="flex flex-row justify-between align-center">
       <div className="flex flex-row justify-center items-center">
-        <div className="font-medium">Language</div>
+        <div className="font-medium">{t(`settings_language`)}</div>
       </div>
 
       <Select

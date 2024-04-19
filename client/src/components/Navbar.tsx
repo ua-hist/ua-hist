@@ -52,7 +52,7 @@ function AddEventForm() {
         </div>
         <div className="space-y-1">
           <Textarea id="body" {...register("body", { required: true })} />
-          {errors.body && <span>{errors.body.message}</span>}
+          {errors.body && <span>{errors.body.message as any}</span>}
         </div>
         <div className="space-y-1">
           <Button
@@ -60,21 +60,23 @@ function AddEventForm() {
             onClick={() => setIsActive(true)}
             type="button"
           >
-            Pick coordinates on a map
+            {t(`pick_coords`)}
           </Button>
         </div>
       </CardContent>
       <CardFooter>
-        <Button type="submit">{t(`auth.log_in`)}</Button>
+        <Button type="submit">{t(`save`)}</Button>
       </CardFooter>
     </form>
   );
 }
 
 function AddEvent() {
+  const { t } = useTranslation();
+
   return (
     <Sheet modal={false}>
-      <SheetTrigger>Add event</SheetTrigger>
+      <SheetTrigger>{t(`add_event`)}</SheetTrigger>
       <SheetContent side="left">
         <AddEventForm />
       </SheetContent>
@@ -97,7 +99,7 @@ function AuthButtons() {
             toast(t("auth.success_loggout"));
           }}
         >
-          <span>{t('auth.logout')}</span>
+          <span>{t("auth.logout")}</span>
         </Button>
       </div>
     );
